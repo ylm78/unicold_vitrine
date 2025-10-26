@@ -23,7 +23,9 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           <Link to="/" className="flex items-center hover:opacity-90 transition">
-            <img src="/unicold-logo.png" alt="Unicold" className="h-12" />
+            <span className="text-3xl font-bold text-unicold-blue-600" style={{ fontFamily: 'Arial, sans-serif' }}>
+              Unicold
+            </span>
           </Link>
 
           <div className="hidden lg:flex space-x-6">

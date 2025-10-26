@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <img
-                src="/unicold-logo-removebg-preview.png"
+                src="/unicold-logo.png"
                 alt="Unicold"
                 className="h-10 mix-blend-lighten brightness-110"
               />
