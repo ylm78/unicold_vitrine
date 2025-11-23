@@ -27,13 +27,11 @@ export default function Home() {
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white/95 max-w-4xl mx-auto leading-relaxed font-light">
               Unicold est votre partenaire de confiance pour la conception, la vente et l'installation
-              de chambres froides professionnelles. Nous proposons des solutions adaptées aux secteurs
-              de la restauration, de l'agroalimentaire, de la pharmacie et de la distribution.
+              de chambres froides professionnelles.
             </p>
             <p className="text-lg md:text-xl text-white/85 max-w-3xl mx-auto mb-10">
               De la chambre froide positive (0°C à +10°C) pour la conservation de vos produits frais,
-              à la chambre froide négative (-18°C à -25°C) pour la congélation, nous maîtrisons toutes
-              les technologies pour garantir une conservation optimale de vos produits.
+              à la chambre froide négative (-18°C à -25°C) pour la congélation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
