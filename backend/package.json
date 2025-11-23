@@ -1,0 +1,22 @@
+{
+  "name": "unicold-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Unicold vitrine",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "unicold",
+    "api",
+    "backend"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
+
