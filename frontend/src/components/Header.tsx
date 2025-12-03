@@ -23,33 +23,32 @@ export default function Header() {
     <header className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100">
       <div className="container mx-auto px-4 py-4">
 
-        {/* ✅ On rend le nav "relative" pour positionner le logo au centre */}
-        <nav className="relative flex items-center justify-between">
-
-          {/* === 1️⃣ TEXTE UNICOLD À GAUCHE === */}
-          <Link to="/" className="flex items-center hover:opacity-90 transition-transform hover:scale-105">
-            <span
-              className="text-3xl font-bold bg-gradient-to-r from-unicold-blue-600 to-unicold-blue-700 bg-clip-text text-transparent"
-              style={{ fontFamily: 'ArTeks, Arial, sans-serif' }}
-            >
-              Unicold
-            </span>
-          </Link>
-
-          {/* === 2️⃣ LOGO IMAGE CENTRÉ === */}
-          <Link
-            to="/"
-            className="absolute left-1/2 transform -translate-x-1/2 hover:opacity-90 transition-transform hover:scale-110"
-          >
+        <nav className="flex items-center justify-between">
+          {/* === LOGO + TEXTE UNICOLD À GAUCHE === */}
+          <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-transform hover:scale-105 group">
             <img
               src={logo}
               alt="Unicold logo"
-              className="h-14 w-auto object-contain drop-shadow-lg"
+              className="h-12 w-auto object-contain drop-shadow-lg group-hover:scale-110 transition-transform"
             />
+            <span
+              className="text-4xl md:text-5xl font-black tracking-tight"
+              style={{ 
+                fontFamily: 'ArTeks, Arial, sans-serif',
+                background: 'linear-gradient(135deg, #00A3E0 0%, #006186 50%, #004159 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                letterSpacing: '-0.02em',
+                textShadow: '0 2px 4px rgba(0, 163, 224, 0.1)'
+              }}
+            >
+              UNICOLD
+            </span>
           </Link>
 
-          {/* === 3️⃣ MENU NAVIGATION À DROITE === */}
-          <div className="hidden lg:flex space-x-8 ml-auto">
+          {/* === MENU NAVIGATION À DROITE === */}
+          <div className="hidden lg:flex space-x-8 items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
