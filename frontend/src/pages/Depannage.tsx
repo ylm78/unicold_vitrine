@@ -34,16 +34,16 @@ export default function Depannage() {
           {/* Bouton d'appel géant */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="tel:0172541360"
+              href="tel:+33172541360"
               className="group relative px-12 py-6 bg-red-600 hover:bg-red-500 text-white rounded-2xl font-bold text-2xl transition-all shadow-[0_0_50px_rgba(239,68,68,0.6)] hover:shadow-[0_0_70px_rgba(239,68,68,0.8)] hover:scale-105 active:scale-95 flex items-center gap-4"
             >
               <Phone className="w-8 h-8 group-hover:animate-pulse" />
               <span>Appeler le technicien de garde</span>
-              <span className="text-lg">01 72 54 13 60</span>
+              <span className="text-lg">+33 1 72 54 13 60</span>
             </a>
             <div className="text-center">
               <p className="text-emerald-400 font-bold text-lg mb-1">Numéro gratuit</p>
-              <p className="text-ice-300 text-sm">Ou appelez le 06 62 64 94 21</p>
+              <p className="text-ice-300 text-sm">Ou appelez le +33 6 62 64 94 21</p>
             </div>
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function Depannage() {
                 <strong className="text-white">Devis immédiat par téléphone</strong> - Pas de frais cachés
               </p>
               <a
-                href="tel:0172541360"
+                href="tel:+33172541360"
                 className="inline-flex items-center px-10 py-4 bg-red-600 hover:bg-red-500 text-white rounded-xl font-bold text-lg transition-all shadow-[0_0_30px_rgba(239,68,68,0.5)] hover:scale-105"
               >
                 <Phone className="w-6 h-6 mr-3" />
@@ -237,11 +237,11 @@ export default function Depannage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:0172541360"
+              href="tel:+33172541360"
               className="px-10 py-5 bg-red-600 hover:bg-red-500 text-white rounded-xl font-bold text-xl transition-all shadow-[0_0_40px_rgba(239,68,68,0.6)] hover:scale-105 flex items-center justify-center gap-3"
             >
               <Phone className="w-7 h-7" />
-              01 72 54 13 60 (Gratuit)
+              +33 1 72 54 13 60 (Gratuit)
             </a>
             <Link
               to="/contact"

@@ -158,7 +158,7 @@ export default function Industrie() {
               Demander une étude
             </Link>
             <a
-              href="tel:0172541360"
+              href="tel:+33172541360"
               className="px-10 py-5 glass-panel rounded-xl text-white font-bold text-xl transition-all hover:bg-white/10 flex items-center justify-center gap-3"
             >
               Nous appeler

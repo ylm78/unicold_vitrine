@@ -63,7 +63,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-ice-400" />
                 </div>
                 <div>
-                  <a href="tel:0172541360" className="hover:underline block">01 72 54 13 60</a>
+                  <a href="tel:+33172541360" className="hover:underline block">+33 1 72 54 13 60</a>
                   <span className="text-xs text-emerald-400">(Gratuit)</span>
                 </div>
               </li>
@@ -71,7 +71,7 @@ export default function Footer() {
                 <div className="bg-ice-500/10 p-2 rounded-lg">
                   <Phone className="w-4 h-4 text-ice-400" />
                 </div>
-                <a href="tel:0662649421" className="hover:underline">06 62 64 94 21</a>
+                <a href="tel:+33662649421" className="hover:underline">+33 6 62 64 94 21</a>
               </li>
               <li className="flex items-center space-x-3 hover:text-ice-400 transition">
                 <div className="bg-ice-500/10 p-2 rounded-lg">

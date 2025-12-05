@@ -55,7 +55,7 @@ function VisitForm() {
       })
       .catch((error) => {
         console.error('Erreur:', error);
-        setStatus('❌ Une erreur est survenue. Réessayez plus tard ou contactez-nous directement au 01 72 54 13 60 (gratuit) ou 06 62 64 94 21.');
+        setStatus('❌ Une erreur est survenue. Réessayez plus tard ou contactez-nous directement au +33 1 72 54 13 60 (gratuit) ou +33 6 62 64 94 21.');
       });
   };
 
@@ -235,12 +235,12 @@ export default function Home() {
                   Panne de chambre froide ? Nous intervenons 24h/24 et 7j/7 partout en Île-de-France et Centre-Val de Loire.
                 </p>
                 <p className="text-sm sm:text-base md:text-lg text-red-300 font-semibold">
-                  📞 Appelez-nous au <a href="tel:0172541360" className="text-white hover:underline">01 72 54 13 60</a> <span className="text-emerald-300 text-xs md:text-sm">(Gratuit)</span> ou <a href="tel:0662649421" className="text-white hover:underline">06 62 64 94 21</a>
+                  📞 Appelez-nous au <a href="tel:+33172541360" className="text-white hover:underline">+33 1 72 54 13 60</a> <span className="text-emerald-300 text-xs md:text-sm">(Gratuit)</span> ou <a href="tel:+33662649421" className="text-white hover:underline">+33 6 62 64 94 21</a>
                 </p>
               </div>
               <div className="flex-shrink-0 w-full sm:w-auto">
                 <a
-                  href="tel:0172541360"
+                  href="tel:+33172541360"
                   className="group relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-red-600 hover:bg-red-500 text-white rounded-xl font-bold text-base md:text-lg transition-all shadow-[0_0_30px_rgba(239,68,68,0.5)] hover:scale-105 flex items-center justify-center gap-3"
                 >
                   <Phone className="w-5 h-5 md:w-6 md:h-6" />

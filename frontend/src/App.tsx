@@ -13,6 +13,7 @@ const Realisations = lazy(() => import('./pages/Realisations'));
 const About = lazy(() => import('./pages/About'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Devis = lazy(() => import('./pages/Devis'));
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales'));
 const Depannage = lazy(() => import('./pages/Depannage'));
 const AidesFinancement = lazy(() => import('./pages/AidesFinancement'));
@@ -54,6 +55,7 @@ function App() {
               <Route path="/a-propos" element={<About />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/devis" element={<Devis />} />
               <Route path="/depannage" element={<Depannage />} />
               <Route path="/aides-financement" element={<AidesFinancement />} />
               <Route path="/solutions/restauration" element={<Restauration />} />

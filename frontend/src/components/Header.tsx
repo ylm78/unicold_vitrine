@@ -18,6 +18,7 @@ export default function Header() {
     { path: '/depannage', label: 'Dépannage 24/7', urgent: true },
     { path: '/a-propos', label: 'À Propos' },
     { path: '/faq', label: 'FAQ' },
+    { path: '/devis', label: 'Devis', cta: true },
     { path: '/contact', label: 'Contact' },
   ];
 
@@ -61,8 +62,8 @@ export default function Header() {
                   className={`hover:text-ice-300 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive(link.path) ? 'text-ice-300' : 'text-gray-300'
                   } ${
-                    link.path === '/contact' 
-                      ? 'bg-ice-600 hover:bg-ice-500 text-white px-5 rounded-full shadow-[0_0_15px_rgba(14,165,233,0.3)]' 
+                    link.cta
+                      ? 'bg-accent hover:bg-accent-hover text-white px-5 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.5)]' 
                       : link.urgent
                       ? 'bg-red-600 hover:bg-red-500 text-white px-5 rounded-full shadow-[0_0_15px_rgba(239,68,68,0.5)] animate-pulse'
                       : ''

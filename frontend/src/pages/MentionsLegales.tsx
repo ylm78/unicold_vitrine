@@ -63,8 +63,8 @@ export default function MentionsLegales() {
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-ice-400" />
                   <div>
-                    <a href="tel:0172541360" className="hover:text-ice-300 transition block">01 72 54 13 60 <span className="text-emerald-400 text-xs">(Gratuit)</span></a>
-                    <a href="tel:0662649421" className="hover:text-ice-300 transition block mt-1">06 62 64 94 21</a>
+                    <a href="tel:+33172541360" className="hover:text-ice-300 transition block">+33 1 72 54 13 60 <span className="text-emerald-400 text-xs">(Gratuit)</span></a>
+                    <a href="tel:+33662649421" className="hover:text-ice-300 transition block mt-1">+33 6 62 64 94 21</a>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">

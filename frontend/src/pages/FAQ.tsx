@@ -76,7 +76,7 @@ export default function FAQ() {
     },
     {
       q: 'Que faire en cas de panne ?',
-      a: 'Contactez-nous immédiatement au 01 72 54 13 60 (gratuit) ou 06 62 64 94 21. Nous intervenons sous 4h pour les urgences. Pour les clients avec contrat de maintenance, l\'intervention est prioritaire. Nous vous répondons sous 2h pour toute demande.'
+      a: 'Contactez-nous immédiatement au +33 1 72 54 13 60 (gratuit) ou +33 6 62 64 94 21. Nous intervenons sous 4h pour les urgences. Pour les clients avec contrat de maintenance, l\'intervention est prioritaire. Nous vous répondons sous 2h pour toute demande.'
     },
     {
       q: 'Y a-t-il une garantie sur les équipements ?',
