@@ -4,7 +4,7 @@ import logo from '../assets/logo/Logo-unicold.png';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 border-t border-white/5 py-12 relative overflow-hidden">
+    <footer className="bg-slate-950 border-t border-white/5 py-8 md:py-12 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full" style={{
           backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
@@ -12,22 +12,23 @@ export default function Footer() {
         }}></div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-          <div className="flex items-center gap-2">
-            <Snowflake className="h-6 w-6 text-ice-600" />
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 mb-6 md:mb-8">
+          <div className="flex items-center gap-1.5 md:gap-2">
+            <Snowflake className="h-5 w-5 md:h-6 md:w-6 text-ice-600" />
             <img
               src={logo}
               alt="Unicold"
-              className="h-10 mix-blend-lighten brightness-110"
+              className="h-8 md:h-10 mix-blend-lighten brightness-110"
             />
-            <span className="font-display font-bold text-xl text-white">UNI<span className="text-ice-600">COLD</span></span>
+            <span className="font-display font-bold text-lg md:text-xl text-white">UNI<span className="text-ice-600">COLD</span></span>
           </div>
-          <div className="text-ice-200/40 text-sm">
-            © 2025 Unicold.fr - Tous droits réservés
+          <div className="text-ice-200/40 text-xs md:text-sm text-center md:text-left">
+            <p>© 2025 Unicold.fr - Tous droits réservés</p>
+            <p className="mt-1 md:mt-2">SIRET : 881 522 296 00014</p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12 mb-6 md:mb-8">
           <div>
             <p className="text-ice-200/60 text-sm leading-relaxed">
               Votre expert en chambres froides professionnelles depuis plus de 15 ans.
@@ -35,8 +36,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-6 text-white">Navigation</h3>
-            <ul className="space-y-3 text-ice-200/60 text-sm">
+            <h3 className="font-bold text-base md:text-lg mb-4 md:mb-6 text-white">Navigation</h3>
+            <ul className="space-y-2 md:space-y-3 text-ice-200/60 text-xs md:text-sm">
               <li><Link to="/" className="hover:text-ice-400 transition">Accueil</Link></li>
               <li><Link to="/services" className="hover:text-ice-400 transition">Services</Link></li>
               <li><Link to="/produits" className="hover:text-ice-400 transition">Produits</Link></li>
@@ -45,17 +46,27 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-6 text-white">Informations</h3>
-            <ul className="space-y-3 text-ice-200/60 text-sm">
+            <h3 className="font-bold text-base md:text-lg mb-4 md:mb-6 text-white">Informations</h3>
+            <ul className="space-y-2 md:space-y-3 text-ice-200/60 text-xs md:text-sm">
               <li><Link to="/a-propos" className="hover:text-ice-400 transition">À Propos</Link></li>
               <li><Link to="/faq" className="hover:text-ice-400 transition">FAQ</Link></li>
               <li><Link to="/contact" className="hover:text-ice-400 transition">Contact</Link></li>
+              <li><Link to="/mentions-legales" className="hover:text-ice-400 transition">Mentions Légales</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-6 text-white">Contact</h3>
-            <ul className="space-y-4 text-ice-200/60 text-sm">
+            <h3 className="font-bold text-base md:text-lg mb-4 md:mb-6 text-white">Contact</h3>
+            <ul className="space-y-3 md:space-y-4 text-ice-200/60 text-xs md:text-sm">
+              <li className="flex items-center space-x-3 hover:text-ice-400 transition">
+                <div className="bg-ice-500/10 p-2 rounded-lg">
+                  <Phone className="w-4 h-4 text-ice-400" />
+                </div>
+                <div>
+                  <a href="tel:0172541360" className="hover:underline block">01 72 54 13 60</a>
+                  <span className="text-xs text-emerald-400">(Gratuit)</span>
+                </div>
+              </li>
               <li className="flex items-center space-x-3 hover:text-ice-400 transition">
                 <div className="bg-ice-500/10 p-2 rounded-lg">
                   <Phone className="w-4 h-4 text-ice-400" />
@@ -66,13 +77,16 @@ export default function Footer() {
                 <div className="bg-ice-500/10 p-2 rounded-lg">
                   <Mail className="w-4 h-4 text-ice-400" />
                 </div>
-                <a href="mailto:unicold.info@gmail.com" className="hover:underline">unicold.info@gmail.com</a>
+                <div>
+                  <a href="mailto:devis@unicold.fr" className="hover:underline block text-xs">devis@unicold.fr</a>
+                  <a href="mailto:contact@unicold.fr" className="hover:underline block text-xs">contact@unicold.fr</a>
+                </div>
               </li>
               <li className="flex items-center space-x-3">
                 <div className="bg-ice-500/10 p-2 rounded-lg">
                   <MapPin className="w-4 h-4 text-ice-400" />
                 </div>
-                <span>France</span>
+                <span>France IDF et Eure-et-Loir (28)</span>
               </li>
             </ul>
           </div>

@@ -1,4 +1,4 @@
-import { Snowflake, MapPin, Facebook, Instagram, Linkedin, ArrowRight, Wrench, Calendar, Building2 } from 'lucide-react';
+import { Snowflake, MapPin, Facebook, Instagram, Linkedin, ArrowRight, Wrench, Calendar, Building2, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState, FormEvent } from 'react';
 import emailjs from 'emailjs-com';
@@ -43,7 +43,7 @@ function VisitForm() {
         publicKey
       )
       .then(() => {
-        setStatus('✅ Demande de visite envoyée avec succès ! Nous vous contacterons rapidement pour confirmer votre rendez-vous.');
+        setStatus('✅ Demande de visite envoyée avec succès ! Nous vous répondrons sous 2h pour confirmer votre rendez-vous.');
         setFormData({
           name: '',
           email: '',
@@ -55,7 +55,7 @@ function VisitForm() {
       })
       .catch((error) => {
         console.error('Erreur:', error);
-        setStatus('❌ Une erreur est survenue. Réessayez plus tard ou contactez-nous directement au 06 62 64 94 21.');
+        setStatus('❌ Une erreur est survenue. Réessayez plus tard ou contactez-nous directement au 01 72 54 13 60 (gratuit) ou 06 62 64 94 21.');
       });
   };
 
@@ -69,7 +69,7 @@ function VisitForm() {
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
-            className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-white/20"
+            className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-white/20"
             placeholder="Jean Dupont"
           />
         </div>
@@ -80,7 +80,7 @@ function VisitForm() {
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             required
-            className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-white/20"
+            className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-white/20"
             placeholder="contact@entreprise.com"
           />
         </div>
@@ -94,7 +94,7 @@ function VisitForm() {
             value={formData.phone}
             onChange={(e) => setFormData({...formData, phone: e.target.value})}
             required
-            className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-white/20"
+            className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-white/20"
             placeholder="06 12 34 56 78"
           />
         </div>
@@ -104,7 +104,7 @@ function VisitForm() {
             type="date"
             value={formData.preferredDate}
             onChange={(e) => setFormData({...formData, preferredDate: e.target.value})}
-            className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all"
+            className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all"
           />
         </div>
       </div>
@@ -186,19 +186,19 @@ export default function Home() {
             <span className="text-ice-300 text-sm font-medium tracking-widest uppercase">Expertise Froid Industriel & Commercial</span>
           </div>
           
-          <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight px-2">
             L'Excellence du <br />
             <span className="text-gradient">Froid Maîtrisé</span>
           </h1>
           
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-ice-100/80 font-light">
+          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-ice-100/80 font-light px-4">
             Conception, installation et maintenance de chambres froides haute performance. De l'étude thermique à la mise en service.
           </p>
           
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+          <div className="mt-8 md:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
             <Link
               to="/contact"
-              className="group relative px-8 py-4 bg-ice-600 text-white rounded-lg overflow-hidden transition-all hover:scale-105 shadow-[0_0_20px_rgba(14,165,233,0.4)]"
+              className="group relative w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 text-base sm:text-lg bg-accent hover:bg-accent-hover text-white rounded-lg overflow-hidden transition-all hover:scale-105 shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_35px_rgba(249,115,22,0.7)]"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]"></div>
               <span className="relative font-semibold flex items-center gap-2">
@@ -215,14 +215,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SAV 24/7 - Section Urgence */}
+      <section className="py-16 bg-gradient-to-r from-red-950/30 via-slate-950 to-red-950/30 border-y border-red-500/20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-red-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-red-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="glass-panel p-6 sm:p-8 md:p-12 rounded-2xl border-2 border-red-500/40">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+              <div className="flex-1 text-center md:text-left">
+                <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-red-500/20 border border-red-500/50 rounded-full text-red-300 font-bold text-xs md:text-sm">
+                  ⚡ URGENCE 24/7
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-3 md:mb-4">
+                  Dépannage Express sous 4h
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl text-ice-200/80 mb-4">
+                  Panne de chambre froide ? Nous intervenons 24h/24 et 7j/7 partout en Île-de-France et Centre-Val de Loire.
+                </p>
+                <p className="text-sm sm:text-base md:text-lg text-red-300 font-semibold">
+                  📞 Appelez-nous au <a href="tel:0172541360" className="text-white hover:underline">01 72 54 13 60</a> <span className="text-emerald-300 text-xs md:text-sm">(Gratuit)</span> ou <a href="tel:0662649421" className="text-white hover:underline">06 62 64 94 21</a>
+                </p>
+              </div>
+              <div className="flex-shrink-0 w-full sm:w-auto">
+                <a
+                  href="tel:0172541360"
+                  className="group relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-red-600 hover:bg-red-500 text-white rounded-xl font-bold text-base md:text-lg transition-all shadow-[0_0_30px_rgba(239,68,68,0.5)] hover:scale-105 flex items-center justify-center gap-3"
+                >
+                  <Phone className="w-5 h-5 md:w-6 md:h-6" />
+                  <span>Appeler maintenant</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="py-24 bg-slate-950 relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Nos Services Experts</h2>
-            <p className="text-ice-200/60 max-w-2xl mx-auto">Un accompagnement complet pour garantir la pérennité de vos installations.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-3 md:mb-4 px-4">Nos Services Experts</h2>
+            <p className="text-sm sm:text-base text-ice-200/60 max-w-2xl mx-auto px-4">Un accompagnement complet pour garantir la pérennité de vos installations.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-4">
             <div className="glass-card p-6 rounded-xl group hover:bg-ice-900/20 transition-all">
               <div className="w-14 h-14 rounded-full bg-ice-500/10 flex items-center justify-center mb-6 text-ice-400 group-hover:scale-110 transition-transform">
                 <Snowflake className="w-7 h-7" />
@@ -231,15 +268,15 @@ export default function Home() {
               <p className="text-sm text-ice-200/60">Large gamme de chambres froides et matériaux professionnels. Panneaux isolants, portes, groupes frigorifiques.</p>
             </div>
 
-            <div className="glass-card p-6 rounded-xl group hover:bg-ice-900/20 transition-all">
-              <div className="w-14 h-14 rounded-full bg-ice-500/10 flex items-center justify-center mb-6 text-ice-400 group-hover:scale-110 transition-transform">
-                <Wrench className="w-7 h-7" />
+            <div className="glass-card p-5 sm:p-6 rounded-xl group hover:bg-ice-900/20 transition-all">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-ice-500/10 flex items-center justify-center mb-4 sm:mb-6 text-ice-400 group-hover:scale-110 transition-transform">
+                <Wrench className="w-6 h-6 sm:w-7 sm:h-7" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Installation</h3>
-              <p className="text-sm text-ice-200/60">Monteurs frigoristes qualifiés. Montage rapide et conforme HACCP.</p>
+              <h3 className="text-base sm:text-lg font-bold text-white mb-2">Installation</h3>
+              <p className="text-xs sm:text-sm text-ice-200/60">Monteurs frigoristes qualifiés. Montage rapide et conforme HACCP.</p>
             </div>
 
-            <div className="glass-card p-6 rounded-xl group hover:bg-ice-900/20 transition-all">
+            <div className="glass-card p-5 sm:p-6 rounded-xl group hover:bg-ice-900/20 transition-all">
               <div className="w-14 h-14 rounded-full bg-ice-500/10 flex items-center justify-center mb-6 text-ice-400 group-hover:scale-110 transition-transform">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -270,7 +307,7 @@ export default function Home() {
             <p className="text-ice-200/60 max-w-2xl mx-auto">Trois sites stratégiques pour vous servir en Île-de-France et Centre-Val de Loire</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto mb-8 sm:mb-12 md:mb-16">
             {[
               { 
                 name: 'Coudray-Montceaux', 
@@ -299,16 +336,16 @@ export default function Home() {
             ].map((site, idx) => {
               const IconComponent = site.icon;
               return (
-                <div key={idx} className={`glass-card p-10 rounded-2xl text-center hover-lift ${site.isDepot ? 'border-2 border-ice-500/30' : ''}`}>
-                  <div className="w-20 h-20 rounded-2xl bg-ice-500/10 flex items-center justify-center mx-auto mb-6 text-ice-400">
-                    <IconComponent className="w-10 h-10" />
+                <div key={idx} className={`glass-card p-6 sm:p-8 md:p-10 rounded-xl md:rounded-2xl text-center hover-lift ${site.isDepot ? 'border-2 border-ice-500/30' : ''}`}>
+                  <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-ice-500/10 flex items-center justify-center mx-auto mb-4 sm:mb-5 md:mb-6 text-ice-400">
+                    <IconComponent className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10" />
                   </div>
-                  <div className="mb-2 inline-block px-3 py-1 bg-ice-500/20 border border-ice-500/30 rounded-full text-xs font-bold text-ice-300 backdrop-blur-sm">
+                  <div className="mb-2 inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 bg-ice-500/20 border border-ice-500/30 rounded-full text-xs font-bold text-ice-300 backdrop-blur-sm">
                     {site.type}
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">{site.name}</h3>
-                  <p className="text-ice-200/60 text-lg mb-2">{site.location}</p>
-                  <p className="text-ice-300 text-base font-medium mb-3">{site.address}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">{site.name}</h3>
+                  <p className="text-ice-200/60 text-sm sm:text-base md:text-lg mb-2">{site.location}</p>
+                  <p className="text-ice-300 text-xs sm:text-sm md:text-base font-medium mb-2 sm:mb-3">{site.address}</p>
                   {site.isDepot && (
                     <div className="mt-2 inline-block px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-300 backdrop-blur-sm">
                       Dépôt visitable
@@ -445,34 +482,50 @@ export default function Home() {
       </section>
 
       {/* Clients Logos */}
-      <section className="bg-slate-950 py-20 border-t border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
+      <section className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-24 border-t border-white/10 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full" style={{
             backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
             backgroundSize: '30px 30px'
           }}></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Ils nous font confiance</h2>
-            <p className="text-ice-200/60 text-base md:text-lg">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-3 md:mb-4 px-4">Ils nous font confiance</h2>
+            <p className="text-ice-200/80 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
               Des entreprises de renom qui nous font confiance pour leurs projets de chambres froides
             </p>
           </div>
 
-          <div className="relative overflow-hidden py-6">
-            <div className="flex gap-20 items-center animate-marquee-infinite">
-              <div className="flex gap-20 items-center flex-shrink-0">
+          <div className="relative overflow-hidden py-6 md:py-8">
+            <div className="flex gap-8 sm:gap-12 md:gap-16 lg:gap-24 items-center animate-marquee-infinite">
+              <div className="flex gap-8 sm:gap-12 md:gap-16 lg:gap-24 items-center flex-shrink-0">
                 {[sncfLogo, nashLogo, berlinerLogo, meydanLogo, afolelogo, subwaylogo, dominoslogo, totallogo].map((logo, idx) => (
-                  <div key={idx} className="flex items-center justify-center h-28 w-40 transition-all duration-300 opacity-90 hover:opacity-100 hover:scale-110">
-                    <img src={logo} alt={`Client ${idx + 1}`} className="h-20 w-auto object-contain max-w-full" />
+                  <div key={idx} className="flex items-center justify-center h-24 sm:h-28 md:h-32 w-32 sm:w-40 md:w-48 transition-all duration-300 group px-2 sm:px-3 md:px-4">
+                    <div className="bg-white/95 p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl border border-white/30 group-hover:border-ice-400/50 transition-all shadow-lg group-hover:shadow-xl">
+                      <img 
+                        src={logo} 
+                        alt={`Client ${idx + 1}`} 
+                        className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain max-w-full opacity-100 group-hover:scale-110 transition-all duration-300" 
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
-              <div className="flex gap-20 items-center flex-shrink-0">
+              <div className="flex gap-8 sm:gap-12 md:gap-16 lg:gap-24 items-center flex-shrink-0">
                 {[sncfLogo, nashLogo, berlinerLogo, meydanLogo, afolelogo, subwaylogo, dominoslogo, totallogo].map((logo, idx) => (
-                  <div key={idx} className="flex items-center justify-center h-28 w-40 transition-all duration-300 opacity-90 hover:opacity-100 hover:scale-110">
-                    <img src={logo} alt={`Client ${idx + 1}`} className="h-20 w-auto object-contain max-w-full" />
+                  <div key={idx} className="flex items-center justify-center h-24 sm:h-28 md:h-32 w-32 sm:w-40 md:w-48 transition-all duration-300 group px-2 sm:px-3 md:px-4">
+                    <div className="bg-white/95 p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl border border-white/30 group-hover:border-ice-400/50 transition-all shadow-lg group-hover:shadow-xl">
+                      <img 
+                        src={logo} 
+                        alt={`Client ${idx + 1}`} 
+                        className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain max-w-full opacity-100 group-hover:scale-110 transition-all duration-300" 
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
                   </div>
                 ))}
               </div>

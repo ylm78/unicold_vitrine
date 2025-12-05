@@ -1,6 +1,7 @@
 import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -42,8 +43,8 @@ export default function FAQ() {
       a: 'Cela dépend de vos besoins. Nous proposons des chambres de 3m³ à plus de 100m³. Pour une petite chambre de 5m³, comptez environ 2,5m x 2m. Nos experts vous aident à dimensionner selon votre volume de stockage.'
     },
     {
-      q: 'Combien de temps dure l\'installation ?',
-      a: 'Pour une chambre standard, l\'installation prend généralement 1 à 2 jours. Pour les projets sur-mesure plus complexes, cela peut prendre 3 à 5 jours. Nous intervenons avec une équipe qualifiée pour minimiser les délais.'
+      q: 'Combien de temps pour installer une chambre froide ?',
+      a: 'Pour une chambre standard préfabriquée : 1 à 2 jours. Pour une chambre sur-mesure : 3 à 5 jours selon la complexité. Nous intervenons avec une équipe de 2 à 3 techniciens qualifiés pour minimiser les délais. L\'installation se fait généralement en horaires normaux, mais nous pouvons intervenir en horaires décalés si nécessaire (restaurants en activité).'
     },
     
     // Produits et équipements
@@ -75,7 +76,7 @@ export default function FAQ() {
     },
     {
       q: 'Que faire en cas de panne ?',
-      a: 'Contactez-nous immédiatement au 06 62 64 94 21. Nous intervenons sous 24-48h selon l\'urgence. Pour les clients avec contrat de maintenance, l\'intervention est prioritaire.'
+      a: 'Contactez-nous immédiatement au 01 72 54 13 60 (gratuit) ou 06 62 64 94 21. Nous intervenons sous 4h pour les urgences. Pour les clients avec contrat de maintenance, l\'intervention est prioritaire. Nous vous répondons sous 2h pour toute demande.'
     },
     {
       q: 'Y a-t-il une garantie sur les équipements ?',
@@ -114,8 +115,12 @@ export default function FAQ() {
       a: 'Cela dépend de la taille et de la température. Une chambre positive de 10m³ consomme environ 2-3 kWh/jour. Une chambre négative de même taille consomme 4-6 kWh/jour. Nos équipements sont optimisés pour réduire la consommation.'
     },
     {
-      q: 'Le bruit du groupe frigorifique est-il gênant ?',
-      a: 'Nos groupes modernes sont relativement silencieux (45-55 dB). Pour les installations sensibles au bruit, nous proposons des groupes split avec compresseur extérieur ou des solutions d\'insonorisation.'
+      q: 'Est-ce que le moteur fait du bruit (pour les voisins) ?',
+      a: 'Nos groupes modernes sont relativement silencieux (45-55 dB, équivalent à un lave-vaisselle). Pour les installations sensibles au bruit (appartements, voisinage proche), nous proposons des groupes split avec compresseur extérieur ou des solutions d\'insonorisation. Nous pouvons aussi installer des groupes "silencieux" spécialement conçus pour les environnements résidentiels.'
+    },
+    {
+      q: 'Quelle différence de consommation entre positif et négatif ?',
+      a: 'Une chambre froide négative consomme environ 2 à 3 fois plus qu\'une chambre positive de même volume. Par exemple, une chambre positive de 10m³ consomme 2-3 kWh/jour, tandis qu\'une chambre négative de 10m³ consomme 5-7 kWh/jour. Nos équipements classe A+++ permettent de réduire cette consommation de 30% par rapport aux anciens modèles.'
     },
     {
       q: 'Quel fluide frigorigène utilisez-vous ?',
@@ -183,6 +188,7 @@ export default function FAQ() {
 
   return (
     <div>
+      <Breadcrumb items={[{ label: 'FAQ' }]} />
       <section className="relative py-32 bg-slate-950 overflow-hidden border-b border-ice-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">

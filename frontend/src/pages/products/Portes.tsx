@@ -1,9 +1,11 @@
 import { DoorOpen, CheckCircle, Lock, ArrowRightLeft, Shield, Gauge } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../../components/Breadcrumb';
 
 export default function Portes() {
   return (
     <div>
+      <Breadcrumb items={[{ label: 'Produits', path: '/produits' }, { label: 'Portes Isothermes' }]} />
       <section className="relative py-32 bg-slate-950 overflow-hidden border-b border-ice-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">
@@ -246,7 +248,7 @@ export default function Portes() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center bg-ice-600 hover:bg-ice-500 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)] hover:scale-105"
+              className="inline-flex items-center bg-accent hover:bg-accent-hover text-white px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_35px_rgba(249,115,22,0.7)] hover:scale-105 active:scale-95"
             >
               Demander un Devis
               <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

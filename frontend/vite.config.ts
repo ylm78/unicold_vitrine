@@ -8,7 +8,29 @@ export default defineConfig({
     port: 5050,
     host: true,
   },
+  build: {
+    // Optimisation du build
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Séparer les vendors
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['lucide-react'],
+        },
+      },
+    },
+    // Compression
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true, // Supprimer les console.log en production
+        drop_debugger: true,
+      },
+    },
+    // Chunk size warning limit
+    chunkSizeWarningLimit: 1000,
+  },
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    include: ['react', 'react-dom', 'react-router-dom'],
   },
 });

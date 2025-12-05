@@ -1,9 +1,61 @@
 import { Package, Snowflake, Lightbulb, DoorOpen, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function Products() {
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const products = [
+    {
+      id: 'panneaux',
+      name: 'Panneaux Sandwich',
+      category: 'isolation',
+      icon: Package,
+      description: 'Panneaux isolants haute performance pour une isolation thermique optimale.',
+      price: 'À partir de 45€/m²',
+      link: '/produits/panneaux-sandwich',
+      specs: 'Épaisseurs : 60-150mm | λ ≤ 0,022 W/(m.K)'
+    },
+    {
+      id: 'compresseurs',
+      name: 'Compresseurs',
+      category: 'equipement',
+      icon: Snowflake,
+      description: 'Groupes frigorifiques puissants et fiables pour positif et négatif.',
+      price: 'À partir de 1 200€',
+      link: '/produits/compresseurs',
+      specs: 'Puissance : 500W à 20kW | Classe A+++'
+    },
+    {
+      id: 'portes',
+      name: 'Portes Isothermes',
+      category: 'accessoire',
+      icon: DoorOpen,
+      description: 'Portes isothermes coulissantes et battantes pour chambres froides.',
+      price: 'À partir de 380€',
+      link: '/produits/portes',
+      specs: 'Coefficient U ≤ 0,8 W/(m².K) | IP65'
+    },
+    {
+      id: 'luminaires',
+      name: 'Luminaires LED 65W',
+      category: 'accessoire',
+      icon: Lightbulb,
+      description: 'Éclairage professionnel LED basse consommation pour milieux frigorifiques.',
+      price: 'À partir de 85€',
+      link: '/produits/luminaires',
+      specs: '6500 lumens | -30°C à +50°C | IP65'
+    },
+  ];
+
+  const filteredProducts = activeFilter === 'all' 
+    ? products 
+    : products.filter(p => p.category === activeFilter);
+
   return (
     <div>
+      <Breadcrumb items={[{ label: 'Produits' }]} />
       <section className="relative py-32 bg-slate-950 overflow-hidden border-b border-ice-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">
@@ -25,62 +77,95 @@ export default function Products() {
 
       <section className="py-20 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4">
+          {/* Filtres */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <button
+              onClick={() => setActiveFilter('all')}
+              className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all ${
+                activeFilter === 'all'
+                  ? 'text-white shadow-[0_0_20px_rgba(249,115,22,0.4)]'
+                  : 'glass-panel text-ice-200 hover:bg-white/10'
+              }`}
+              style={activeFilter === 'all' ? { backgroundColor: '#f97316' } : {}}
+            >
+              Tous les produits
+            </button>
+            <button
+              onClick={() => setActiveFilter('isolation')}
+              className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all ${
+                activeFilter === 'isolation'
+                  ? 'text-white shadow-[0_0_20px_rgba(249,115,22,0.4)]'
+                  : 'glass-panel text-ice-200 hover:bg-white/10'
+              }`}
+              style={activeFilter === 'isolation' ? { backgroundColor: '#f97316' } : {}}
+            >
+              Isolation
+            </button>
+            <button
+              onClick={() => setActiveFilter('equipement')}
+              className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all ${
+                activeFilter === 'equipement'
+                  ? 'text-white shadow-[0_0_20px_rgba(249,115,22,0.4)]'
+                  : 'glass-panel text-ice-200 hover:bg-white/10'
+              }`}
+              style={activeFilter === 'equipement' ? { backgroundColor: '#f97316' } : {}}
+            >
+              Équipements
+            </button>
+            <button
+              onClick={() => setActiveFilter('accessoire')}
+              className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all ${
+                activeFilter === 'accessoire'
+                  ? 'text-white shadow-[0_0_20px_rgba(249,115,22,0.4)]'
+                  : 'glass-panel text-ice-200 hover:bg-white/10'
+              }`}
+              style={activeFilter === 'accessoire' ? { backgroundColor: '#f97316' } : {}}
+            >
+              Accessoires
+            </button>
+          </div>
+
+          {/* Grille de produits */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Link to="/produits/panneaux-sandwich" className="glass-card p-8 rounded-2xl hover-lift group">
-              <div className="w-16 h-16 rounded-2xl bg-ice-500/10 flex items-center justify-center mb-6 text-ice-400 group-hover:scale-110 transition-transform">
-                <Package className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-ice-300 transition">Panneaux Sandwich</h3>
-              <p className="text-ice-200/70 leading-relaxed mb-4">
-                Panneaux isolants haute performance pour une isolation thermique optimale.
-              </p>
-              <div className="flex items-center text-ice-400 font-semibold group-hover:translate-x-2 transition">
-                En savoir plus <ArrowRight className="w-5 h-5 ml-2" />
-              </div>
-              <p className="text-sm text-ice-300/60 mt-2">À partir de 45€/m²</p>
-            </Link>
-
-            <Link to="/produits/compresseurs" className="glass-card p-8 rounded-2xl hover-lift group">
-              <div className="w-16 h-16 rounded-2xl bg-ice-500/10 flex items-center justify-center mb-6 text-ice-400 group-hover:scale-110 transition-transform">
-                <Snowflake className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-ice-300 transition">Compresseurs</h3>
-              <p className="text-ice-200/70 leading-relaxed mb-4">
-                Groupes frigorifiques puissants et fiables pour positif et négatif.
-              </p>
-              <div className="flex items-center text-ice-400 font-semibold group-hover:translate-x-2 transition">
-                En savoir plus <ArrowRight className="w-5 h-5 ml-2" />
-              </div>
-              <p className="text-sm text-ice-300/60 mt-2">À partir de 1 200€</p>
-            </Link>
-
-            <Link to="/produits/portes" className="glass-card p-8 rounded-2xl hover-lift group">
-              <div className="w-16 h-16 rounded-2xl bg-ice-500/10 flex items-center justify-center mb-6 text-ice-400 group-hover:scale-110 transition-transform">
-                <DoorOpen className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-ice-300 transition">Portes</h3>
-              <p className="text-ice-200/70 leading-relaxed mb-4">
-                Portes isothermes coulissantes et battantes pour chambres froides.
-              </p>
-              <div className="flex items-center text-ice-400 font-semibold group-hover:translate-x-2 transition">
-                En savoir plus <ArrowRight className="w-5 h-5 ml-2" />
-              </div>
-              <p className="text-sm text-ice-300/60 mt-2">À partir de 380€</p>
-            </Link>
-
-            <Link to="/produits/luminaires" className="glass-card p-8 rounded-2xl hover-lift group">
-              <div className="w-16 h-16 rounded-2xl bg-ice-500/10 flex items-center justify-center mb-6 text-ice-400 group-hover:scale-110 transition-transform">
-                <Lightbulb className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-ice-300 transition">Luminaires 65W</h3>
-              <p className="text-ice-200/70 leading-relaxed mb-4">
-                Éclairage professionnel LED basse consommation pour milieux frigorifiques.
-              </p>
-              <div className="flex items-center text-ice-400 font-semibold group-hover:translate-x-2 transition">
-                En savoir plus <ArrowRight className="w-5 h-5 ml-2" />
-              </div>
-              <p className="text-sm text-ice-300/60 mt-2">À partir de 85€</p>
-            </Link>
+            {filteredProducts.map((product) => {
+              const IconComponent = product.icon;
+              return (
+                <div key={product.id} className="glass-card p-8 rounded-2xl hover-lift group">
+                  <div className="w-16 h-16 rounded-2xl bg-ice-500/10 flex items-center justify-center mb-6 text-ice-400 group-hover:scale-110 transition-transform">
+                    <IconComponent className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-ice-300 transition">
+                    {product.name}
+                  </h3>
+                  <p className="text-ice-200/70 leading-relaxed mb-4">
+                    {product.description}
+                  </p>
+                  <div className="mb-4">
+                    <p className="text-xs text-ice-300/60 mb-2 font-semibold">Caractéristiques :</p>
+                    <p className="text-xs text-ice-200/70">{product.specs}</p>
+                  </div>
+                  <p className="text-sm text-ice-300 font-bold mb-4">{product.price}</p>
+                  
+                  <div className="flex flex-col gap-2">
+                    <Link
+                      to={product.link}
+                      className="flex items-center justify-center text-ice-400 font-semibold group-hover:text-ice-300 transition text-sm py-2"
+                    >
+                      Voir les détails <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="flex items-center justify-center text-white px-4 py-2 rounded-lg font-bold text-sm transition-all shadow-[0_0_15px_rgba(249,115,22,0.3)] hover:scale-105"
+                      style={{ backgroundColor: '#f97316' }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#ea580c'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f97316'}
+                    >
+                      Demander un prix
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -90,7 +175,10 @@ export default function Products() {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-8">Besoin d'un devis ?</h2>
           <Link
             to="/contact"
-            className="inline-flex items-center bg-gradient-to-r from-ice-600 to-blue-600 hover:from-ice-500 hover:to-blue-500 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)] hover:scale-105"
+            className="inline-flex items-center text-white px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:scale-105"
+            style={{ backgroundColor: '#f97316' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#ea580c'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f97316'}
           >
             Nous contacter
             <ArrowRight className="w-5 h-5 ml-2" />

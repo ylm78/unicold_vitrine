@@ -1,9 +1,11 @@
 import { Award, Users, Target, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function About() {
   return (
     <div>
+      <Breadcrumb items={[{ label: 'À Propos' }]} />
       <section className="relative py-32 bg-slate-950 overflow-hidden border-b border-ice-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">
@@ -29,6 +31,8 @@ export default function About() {
                   src="/azz.jpg"
                   alt="Équipe Unicold"
                   className="rounded-xl shadow-2xl w-full h-96 object-cover glass-card"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div>
@@ -83,6 +87,8 @@ export default function About() {
                     src="/a-propos/stock-entrepot.jpg"
                     alt="Entrepôt de stockage Unicold"
                     className="w-full h-80 object-cover"
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.currentTarget.src = '/azz.jpg';
                     }}
@@ -93,6 +99,8 @@ export default function About() {
                     src="/a-propos/atelier-equipements.jpg"
                     alt="Atelier et équipements Unicold"
                     className="w-full h-80 object-cover"
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.currentTarget.src = '/surmesure.jpg';
                     }}

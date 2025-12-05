@@ -33,6 +33,11 @@ export default {
           900: '#0c4a6e',
           950: '#082f49',
         },
+        accent: {
+          DEFAULT: '#f97316', // Orange vif pour les CTA
+          hover: '#ea580c',
+          light: '#fb923c',
+        },
       },
       backgroundImage: {
         'frost-gradient': 'linear-gradient(135deg, #0f172a 0%, #082f49 100%)',

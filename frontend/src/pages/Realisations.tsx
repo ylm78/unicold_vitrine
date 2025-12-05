@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MapPin, Calendar, X, PlayCircle } from 'lucide-react';
 import restaurantVideo from '../assets/2022.mp4';
 import restaurantVideo2 from '../assets/2023.mp4';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function Realisations() {
   const [activeVideoProject, setActiveVideoProject] = useState<any>(null);
@@ -14,58 +15,75 @@ export default function Realisations() {
       location: 'Pontault-Combault (77)',
       date: '2025',
       image: '/chambre-froide-neg.jpg',
-      description:
-        'Installation chambre froide positive et négative imbriqué pour restaurant étoilé.',
+      client: 'Restaurant étoilé',
+      challenge: 'Besoin de deux chambres froides (positive et négative) dans un espace très réduit sous escalier.',
+      solution: 'Conception sur-mesure avec chambres imbriquées, découpe des panneaux selon plans architecturaux, groupe frigorifique déporté silencieux pour ne pas déranger les clients.',
+      result: 'Installation réussie en 3 jours, conformité HACCP, client satisfait.',
       videoUrl: restaurantVideo,
     },
     {
       id: 'berliner',
-      title: 'Berliner - Paris',
+      title: 'Berliner - La Défense',
       category: 'Restauration',
       location: 'La Défense (92)',
       date: '2025',
       image: '/azz.jpg',
-      description: 'Installation chambre froide positive.',
+      client: 'Restaurant Berliner',
+      challenge: 'Installation d\'une chambre froide positive dans un restaurant en activité, contraintes de bruit et d\'espace.',
+      solution: 'Groupe monobloc silencieux, installation en horaires décalés pour ne pas perturber le service, formation du personnel.',
+      result: 'Installation sans interruption du service, optimisation énergétique de 25%.',
       videoUrl: restaurantVideo2,
     },
     {
-      id: 'entrepot-stockage',
-      title: 'Entrepôt de Stockage - Panneaux',
-      category: 'Logistique',
-      location: 'Île-de-France',
+      id: 'boucherie-versailles',
+      title: 'Boucherie Traditionnelle - Versailles',
+      category: 'Commerce',
+      location: 'Versailles (78)',
       date: '2024',
       image: '/realisations/entrepot-panneaux.jpg',
-      description: 'Stockage et gestion de panneaux sandwich pour projets de grande envergure.',
+      client: 'Boucherie artisanale',
+      challenge: 'Espace très réduit sous escalier, besoin d\'une chambre négative pour congélation et d\'une positive pour produits frais.',
+      solution: 'Découpe des panneaux sur mesure selon plans, groupe frigorifique déporté silencieux, installation en 2 jours.',
+      result: 'Double chambre fonctionnelle dans un espace de 8m², client très satisfait.',
       images: ['/realisations/entrepot-panneaux.jpg'],
     },
     {
       id: 'couloir-chambres',
-      title: 'Installation Multi-Chambres Froides',
+      title: 'Complexe Multi-Chambres - Centre-Val de Loire',
       category: 'Industrie',
       location: 'Centre-Val de Loire',
       date: '2024',
       image: '/realisations/couloir-chambres.jpg',
-      description: 'Couloir principal avec accès à plusieurs chambres froides professionnelles.',
+      client: 'Entreprise agroalimentaire',
+      challenge: 'Création d\'un complexe avec 5 chambres froides à températures différentes (-25°C, -18°C, +2°C, +4°C, +8°C).',
+      solution: 'Bureau d\'études thermique complet, conception modulaire, groupes frigorifiques haute performance, système de monitoring à distance.',
+      result: 'Installation de 200m² de chambres froides, optimisation énergétique globale, maintenance préventive sous contrat.',
       images: ['/realisations/couloir-chambres.jpg'],
     },
     {
       id: 'installation-complete',
-      title: 'Installation Complète - Entrepôt',
+      title: 'Entrepôt Logistique - Île-de-France',
       category: 'Logistique',
       location: 'Île-de-France',
       date: '2024',
       image: '/realisations/installation-complete.jpg',
-      description: 'Vue d\'ensemble d\'une installation complète avec plusieurs chambres froides.',
+      client: 'Plateforme logistique',
+      challenge: 'Installation de plusieurs chambres froides pour stockage de produits pharmaceutiques avec traçabilité HACCP.',
+      solution: 'Chambres froides modulaires, système de monitoring IoT, documentation complète pour audits.',
+      result: 'Installation conforme aux normes pharmaceutiques, certification obtenue, contrat de maintenance annuel.',
       images: ['/realisations/installation-complete.jpg'],
     },
     {
       id: 'chambre-froide-modulaire',
-      title: 'Chambre Froide Modulaire',
+      title: 'Supermarket - Île-de-France',
       category: 'Commerce',
       location: 'Île-de-France',
       date: '2024',
       image: '/realisations/chambre-modulaire.jpg',
-      description: 'Chambre froide modulaire avec compartiments séparés pour différents types de produits.',
+      client: 'Supermarket',
+      challenge: 'Chambre froide modulaire avec compartiments séparés pour différents types de produits (viandes, poissons, légumes).',
+      solution: 'Conception modulaire avec séparations internes, portes multiples, éclairage LED adapté, sol antidérapant.',
+      result: 'Organisation optimale des stocks, réduction des pertes, conformité HACCP.',
       images: ['/realisations/chambre-modulaire.jpg'],
     },
   ];
@@ -78,6 +96,7 @@ export default function Realisations() {
 
   return (
     <div>
+      <Breadcrumb items={[{ label: 'Réalisations' }]} />
       {/* Hero */}
       <section className="relative py-32 bg-slate-950 overflow-hidden border-b border-ice-500/10">
         {/* Lignes géométriques subtiles */}
@@ -116,6 +135,8 @@ export default function Realisations() {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-64 object-cover"
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.currentTarget.src = '/chambre-froide-neg.jpg';
                     }}
@@ -137,28 +158,47 @@ export default function Realisations() {
                 {/* Détails projet */}
                 <div className="p-6">
                   <h3
-                    onClick={() => handleOpenVideo(project)}
+                    onClick={() => project.videoUrl && handleOpenVideo(project)}
                     className="text-2xl font-bold text-white mb-1 hover:text-ice-300 transition cursor-pointer"
                   >
                     {project.title}
                   </h3>
 
-                  <p className="text-sm text-ice-400 mb-2">
-                    {project.category}
+                  <p className="text-sm text-ice-400 mb-4">
+                    {project.category} • {project.location} • {project.date}
                   </p>
 
-                  <p className="text-ice-200/70 mb-4">{project.description}</p>
-
-                  <div className="flex items-center text-sm text-ice-300/60 gap-4">
-                    <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2 text-ice-400" />
-                      {project.location}
-                    </div>
-                    <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2 text-ice-400" />
-                      {project.date}
-                    </div>
+                  {/* Étude de cas détaillée */}
+                  <div className="space-y-4 mb-4">
+                    {project.client && (
+                      <div>
+                        <p className="text-xs font-bold text-ice-300 mb-1">Le Client :</p>
+                        <p className="text-sm text-ice-200/70">{project.client}</p>
+                      </div>
+                    )}
+                    {project.challenge && (
+                      <div>
+                        <p className="text-xs font-bold text-red-400 mb-1">Le Défi :</p>
+                        <p className="text-sm text-ice-200/70">{project.challenge}</p>
+                      </div>
+                    )}
+                    {project.solution && (
+                      <div>
+                        <p className="text-xs font-bold text-ice-400 mb-1">La Solution Unicold :</p>
+                        <p className="text-sm text-ice-200/70">{project.solution}</p>
+                      </div>
+                    )}
+                    {project.result && (
+                      <div>
+                        <p className="text-xs font-bold text-emerald-400 mb-1">Le Résultat :</p>
+                        <p className="text-sm text-ice-200/70">{project.result}</p>
+                      </div>
+                    )}
                   </div>
+
+                  {!project.client && (
+                    <p className="text-ice-200/70 mb-4">{project.description}</p>
+                  )}
                 </div>
               </div>
             ))}

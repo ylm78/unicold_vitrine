@@ -7,17 +7,24 @@ export default function CustomCursor() {
 
     if (!cursorDot || !cursorOutline) return;
 
+    let rafId: number | null = null;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      const posX = e.clientX;
-      const posY = e.clientY;
+      // Utiliser requestAnimationFrame pour optimiser les performances
+      if (rafId) cancelAnimationFrame(rafId);
       
-      cursorDot.style.left = `${posX}px`;
-      cursorDot.style.top = `${posY}px`;
-      
-      cursorOutline.animate(
-        { left: `${posX}px`, top: `${posY}px` },
-        { duration: 500, fill: 'forwards' }
-      );
+      rafId = requestAnimationFrame(() => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        
+        cursorOutline.animate(
+          { left: `${posX}px`, top: `${posY}px` },
+          { duration: 500, fill: 'forwards' }
+        );
+      });
     };
 
     const handleMouseEnter = () => {
@@ -43,6 +50,7 @@ export default function CustomCursor() {
     });
 
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       window.removeEventListener('mousemove', handleMouseMove);
       interactiveElements.forEach((el) => {
         el.removeEventListener('mouseenter', handleMouseEnter);
