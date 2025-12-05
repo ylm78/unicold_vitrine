@@ -4,7 +4,7 @@ import restaurantVideo from '../assets/2022.mp4';
 import restaurantVideo2 from '../assets/2023.mp4';
 
 export default function Realisations() {
-  const [activeVideoProject, setActiveVideoProject] = useState(null);
+  const [activeVideoProject, setActiveVideoProject] = useState<any>(null);
 
   const projects = [
     {
@@ -70,7 +70,7 @@ export default function Realisations() {
     },
   ];
 
-  const handleOpenVideo = (project) => {
+  const handleOpenVideo = (project: any) => {
     if (project.videoUrl) setActiveVideoProject(project);
   };
 
@@ -79,27 +79,33 @@ export default function Realisations() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-unicold-blue-600 via-unicold-blue-700 to-unicold-blue-800 text-white py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-unicold-blue-300 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      <section className="relative py-32 bg-slate-950 overflow-hidden border-b border-ice-500/10">
+        {/* Lignes géométriques subtiles */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400 to-transparent"></div>
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400/50 to-transparent"></div>
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400 to-transparent"></div>
+          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400/50 to-transparent"></div>
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6" style={{ fontFamily: 'ArTeks, Arial, sans-serif' }}>Nos Réalisations</h1>
-          <p className="text-xl md:text-2xl text-unicold-blue-100 max-w-3xl mx-auto">
+        {/* Accent lumineux subtil */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-ice-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-ice-400/5 rounded-full blur-3xl"></div>
+        <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
+          <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 text-white">Nos Réalisations</h1>
+          <p className="text-xl md:text-2xl text-ice-100/80 max-w-3xl mx-auto">
             Découvrez nos projets récents
           </p>
         </div>
       </section>
 
       {/* Liste des projets */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <section className="py-20 bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-xl hover-lift border border-gray-100"
+                className="glass-card rounded-2xl overflow-hidden hover-lift"
               >
                 {/* Image */}
                 <div
@@ -111,7 +117,6 @@ export default function Realisations() {
                     alt={project.title}
                     className="w-full h-64 object-cover"
                     onError={(e) => {
-                      // Fallback si l'image n'existe pas encore
                       e.currentTarget.src = '/chambre-froide-neg.jpg';
                     }}
                   />
@@ -133,24 +138,24 @@ export default function Realisations() {
                 <div className="p-6">
                   <h3
                     onClick={() => handleOpenVideo(project)}
-                    className="text-2xl font-bold text-gray-900 mb-1 hover:text-unicold-blue-600 transition cursor-pointer"
+                    className="text-2xl font-bold text-white mb-1 hover:text-ice-300 transition cursor-pointer"
                   >
                     {project.title}
                   </h3>
 
-                  <p className="text-sm text-unicold-blue-500 mb-2">
+                  <p className="text-sm text-ice-400 mb-2">
                     {project.category}
                   </p>
 
-                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <p className="text-ice-200/70 mb-4">{project.description}</p>
 
-                  <div className="flex items-center text-sm text-gray-500 gap-4">
+                  <div className="flex items-center text-sm text-ice-300/60 gap-4">
                     <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2 text-unicold-blue-500" />
+                      <MapPin className="w-4 h-4 mr-2 text-ice-400" />
                       {project.location}
                     </div>
                     <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2 text-unicold-blue-500" />
+                      <Calendar className="w-4 h-4 mr-2 text-ice-400" />
                       {project.date}
                     </div>
                   </div>
@@ -164,17 +169,17 @@ export default function Realisations() {
       {/* Modal vidéo */}
       {activeVideoProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
-          <div className="bg-white rounded-2xl max-w-3xl w-full shadow-2xl overflow-hidden">
-            <div className="flex items-center justify-between px-4 py-3 border-b">
-              <h2 className="text-lg font-semibold text-gray-900">
+          <div className="glass-panel rounded-2xl max-w-3xl w-full shadow-2xl overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+              <h2 className="text-lg font-semibold text-white">
                 Vidéo – {activeVideoProject.title}
               </h2>
               <button
                 type="button"
                 onClick={handleCloseVideo}
-                className="p-1 rounded-full hover:bg-gray-100"
+                className="p-1 rounded-full hover:bg-white/10 text-ice-300"
               >
-                <X className="w-5 h-5 text-gray-600" />
+                <X className="w-5 h-5" />
               </button>
             </div>
             <div className="bg-black">
