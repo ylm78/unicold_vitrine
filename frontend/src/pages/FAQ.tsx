@@ -189,26 +189,26 @@ export default function FAQ() {
   return (
     <div>
       <Breadcrumb items={[{ label: 'FAQ' }]} />
-      <section className="relative py-32 bg-slate-950 overflow-hidden border-b border-ice-500/10">
+      <section className="relative py-32 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400 to-transparent"></div>
-          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400/50 to-transparent"></div>
-          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400 to-transparent"></div>
-          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400/50 to-transparent"></div>
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent"></div>
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
+          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent"></div>
         </div>
         {/* Accent lumineux subtil */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-ice-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-ice-400/5 rounded-full blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <div className="glass-panel w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <HelpCircle className="w-10 h-10 text-ice-400" />
+            <HelpCircle className="w-10 h-10 text-sky-500" />
           </div>
-          <h1 className="font-display text-5xl md:text-6xl font-bold mb-4 text-white">Questions Fréquentes</h1>
+          <h1 className="font-display text-5xl md:text-6xl font-bold mb-4 text-slate-900">Questions Fréquentes</h1>
         </div>
       </section>
 
-      <section className="py-20 bg-slate-950">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-4">
             {faqs.map((faq, idx) => {
@@ -219,12 +219,12 @@ export default function FAQ() {
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
                     className="w-full px-8 py-5 text-left flex items-center justify-between hover:bg-white/5 transition"
                   >
-                    <span className="font-bold text-white text-lg pr-4">{faq.q}</span>
-                    <ChevronDown className={`w-6 h-6 text-ice-400 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
+                    <span className="font-bold text-slate-900 text-lg pr-4">{faq.q}</span>
+                    <ChevronDown className={`w-6 h-6 text-sky-500 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
                   {isOpen && (
-                    <div className="px-8 pb-6 animate-fade-in border-t border-white/5">
-                      <p className="text-ice-200/80 leading-relaxed text-lg pt-4">{faq.a}</p>
+                    <div className="px-8 pb-6 animate-fade-in border-t border-sky-200">
+                      <p className="text-slate-600/80 leading-relaxed text-lg pt-4">{faq.a}</p>
                     </div>
                   )}
                 </div>
@@ -234,10 +234,10 @@ export default function FAQ() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
+      <section className="py-20 bg-gradient-to-b from-white to-sky-50">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-8">Vous ne trouvez pas la réponse ?</h2>
-          <Link to="/contact" className="inline-flex items-center bg-gradient-to-r from-ice-600 to-blue-600 hover:from-ice-500 hover:to-blue-500 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)] hover:scale-105">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-8">Vous ne trouvez pas la réponse ?</h2>
+          <Link to="/contact" className="inline-flex items-center bg-gradient-to-r from-ice-600 to-blue-600 hover:from-ice-500 hover:to-blue-500 text-slate-900 px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)] hover:scale-105">
             Nous contacter
             <ArrowRight className="w-5 h-5 ml-2" />
           </Link>

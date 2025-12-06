@@ -109,50 +109,50 @@ export default function Devis() {
   return (
     <div>
       <Breadcrumb items={[{ label: 'Devis' }]} />
-      <section className="relative py-32 bg-slate-950 overflow-hidden border-b border-ice-500/10">
+      <section className="relative py-32 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400 to-transparent"></div>
-          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400/50 to-transparent"></div>
-          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400 to-transparent"></div>
-          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-ice-400/50 to-transparent"></div>
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent"></div>
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
+          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent"></div>
         </div>
         {/* Accent lumineux subtil */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-ice-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-ice-400/5 rounded-full blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <div className="w-20 h-20 rounded-2xl bg-orange-500/20 flex items-center justify-center mx-auto mb-6">
             <Calculator className="w-10 h-10 text-orange-400" />
           </div>
-          <h1 className="font-display text-5xl md:text-6xl font-bold mb-4 text-white">Demande de Devis</h1>
-          <p className="text-xl text-ice-100/80 max-w-2xl mx-auto">
+          <h1 className="font-display text-5xl md:text-6xl font-bold mb-4 text-slate-900">Demande de Devis</h1>
+          <p className="text-xl text-slate-600/80 max-w-2xl mx-auto">
             Formulaire pour obtenir rapidement un devis personnalisé. Nous vous répondrons sous <strong className="text-emerald-300">2h</strong>.
           </p>
         </div>
       </section>
 
-      <section className="py-20 bg-slate-950">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
             {/* Informations de contact */}
             <div className="glass-panel p-6 rounded-2xl">
-              <h2 className="text-xl font-display font-bold text-white mb-6">Informations</h2>
+              <h2 className="text-xl font-display font-bold text-slate-900 mb-6">Informations</h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4 p-4 glass-card rounded-xl hover:bg-white/5 transition">
-                  <div className="bg-ice-500/10 p-3 rounded-xl">
-                    <Phone className="w-6 h-6 text-ice-400" />
+                  <div className="bg-sky-300/10 p-3 rounded-xl">
+                    <Phone className="w-6 h-6 text-sky-500" />
                   </div>
                   <div>
-                    <div className="font-semibold text-white mb-1">Téléphone</div>
+                    <div className="font-semibold text-slate-900 mb-1">Téléphone</div>
                     <div className="space-y-2">
                       <div>
-                        <a href="tel:+33172541360" className="text-ice-400 hover:text-ice-300 hover:underline transition block">
+                        <a href="tel:+33172541360" className="text-sky-500 hover:text-slate-700 hover:underline transition block">
                           +33 1 72 54 13 60
                         </a>
                         <span className="text-xs text-emerald-400 font-semibold">(Numéro gratuit)</span>
                       </div>
                       <div>
-                        <a href="tel:+33662649421" className="text-ice-400 hover:text-ice-300 hover:underline transition block">
+                        <a href="tel:+33662649421" className="text-sky-500 hover:text-slate-700 hover:underline transition block">
                           +33 6 62 64 94 21
                         </a>
                       </div>
@@ -160,26 +160,26 @@ export default function Devis() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4 p-4 glass-card rounded-xl hover:bg-white/5 transition">
-                  <div className="bg-ice-500/10 p-3 rounded-xl">
-                    <Mail className="w-6 h-6 text-ice-400" />
+                  <div className="bg-sky-300/10 p-3 rounded-xl">
+                    <Mail className="w-6 h-6 text-sky-500" />
                   </div>
                   <div>
-                    <div className="font-semibold text-white mb-1">Email</div>
+                    <div className="font-semibold text-slate-900 mb-1">Email</div>
                     <div className="space-y-2">
                       <div>
-                        <span className="text-xs text-ice-300/60 block mb-1">Pour les devis :</span>
-                        <a href="mailto:devis@unicold.fr" className="text-ice-400 hover:text-ice-300 hover:underline transition">devis@unicold.fr</a>
+                        <span className="text-xs text-slate-700/60 block mb-1">Pour les devis :</span>
+                        <a href="mailto:devis@unicold.fr" className="text-sky-500 hover:text-slate-700 hover:underline transition">devis@unicold.fr</a>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4 p-4 glass-card rounded-xl hover:bg-white/5 transition">
-                  <div className="bg-ice-500/10 p-3 rounded-xl">
-                    <MapPin className="w-6 h-6 text-ice-400" />
+                  <div className="bg-sky-300/10 p-3 rounded-xl">
+                    <MapPin className="w-6 h-6 text-sky-500" />
                   </div>
                   <div>
-                    <div className="font-semibold text-white mb-1">Siège Social</div>
-                    <div className="text-ice-200/70">16 Rue Pascal, 78300 Poissy</div>
+                    <div className="font-semibold text-slate-900 mb-1">Siège Social</div>
+                    <div className="text-slate-600/70">16 Rue Pascal, 78300 Poissy</div>
                   </div>
                 </div>
               </div>
@@ -187,16 +187,16 @@ export default function Devis() {
 
             {/* Formulaire de devis */}
             <div className="glass-panel p-6 sm:p-8 rounded-2xl">
-              <h2 className="text-xl md:text-2xl font-display font-bold text-white mb-4 md:mb-6">
+              <h2 className="text-xl md:text-2xl font-display font-bold text-slate-900 mb-4 md:mb-6">
                 Formulaire de Devis
               </h2>
-              <p className="text-sm sm:text-base text-ice-200/70 mb-6">
+              <p className="text-sm sm:text-base text-slate-600/70 mb-6">
                 Remplissez le formulaire ci-dessous et décrivez votre projet. Nous vous répondrons sous <strong className="text-emerald-300">2h</strong> avec un devis personnalisé.
               </p>
               
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-ice-300 mb-2">Nom complet *</label>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Nom complet *</label>
                   <div className="relative">
                     <input
                       type="text"
@@ -204,12 +204,12 @@ export default function Devis() {
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       onBlur={(e) => handleInputChange('name', e.target.value)}
                       required
-                      className={`w-full bg-slate-900/50 border rounded-lg px-4 py-3.5 sm:py-3 pr-10 text-base sm:text-sm text-white focus:outline-none focus:ring-1 transition-all placeholder-white/20 ${
+                      className={`w-full bg-sky-50/50 border rounded-lg px-4 py-3.5 sm:py-3 pr-10 text-base sm:text-sm text-slate-900 focus:outline-none focus:ring-1 transition-all placeholder-white/20 ${
                         validation.name.isValid === true 
                           ? 'border-emerald-500/50 focus:border-emerald-500 focus:ring-emerald-500' 
                           : validation.name.isValid === false
                           ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500'
-                          : 'border-ice-500/20 focus:border-ice-500 focus:ring-ice-500'
+                          : 'border-sky-500/20 focus:border-sky-500 focus:ring-ice-500'
                       }`}
                       placeholder="Votre nom"
                     />
@@ -226,7 +226,7 @@ export default function Devis() {
                 </div>
                 
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-ice-300 mb-2">Email *</label>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Email *</label>
                   <div className="relative">
                     <input
                       type="email"
@@ -234,12 +234,12 @@ export default function Devis() {
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       onBlur={(e) => handleInputChange('email', e.target.value)}
                       required
-                      className={`w-full bg-slate-900/50 border rounded-lg px-4 py-3.5 sm:py-3 pr-10 text-base sm:text-sm text-white focus:outline-none focus:ring-1 transition-all placeholder-white/20 ${
+                      className={`w-full bg-sky-50/50 border rounded-lg px-4 py-3.5 sm:py-3 pr-10 text-base sm:text-sm text-slate-900 focus:outline-none focus:ring-1 transition-all placeholder-white/20 ${
                         validation.email.isValid === true 
                           ? 'border-emerald-500/50 focus:border-emerald-500 focus:ring-emerald-500' 
                           : validation.email.isValid === false
                           ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500'
-                          : 'border-ice-500/20 focus:border-ice-500 focus:ring-ice-500'
+                          : 'border-sky-500/20 focus:border-sky-500 focus:ring-ice-500'
                       }`}
                       placeholder="votre@email.com"
                     />
@@ -256,19 +256,19 @@ export default function Devis() {
                 </div>
                 
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-ice-300 mb-2">Téléphone</label>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Téléphone</label>
                   <div className="relative">
                     <input
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
                       onBlur={(e) => handleInputChange('phone', e.target.value)}
-                      className={`w-full bg-slate-900/50 border rounded-lg px-4 py-3.5 sm:py-3 pr-10 text-base sm:text-sm text-white focus:outline-none focus:ring-1 transition-all placeholder-white/20 ${
+                      className={`w-full bg-sky-50/50 border rounded-lg px-4 py-3.5 sm:py-3 pr-10 text-base sm:text-sm text-slate-900 focus:outline-none focus:ring-1 transition-all placeholder-white/20 ${
                         validation.phone.isValid === true 
                           ? 'border-emerald-500/50 focus:border-emerald-500 focus:ring-emerald-500' 
                           : validation.phone.isValid === false
                           ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500'
-                          : 'border-ice-500/20 focus:border-ice-500 focus:ring-ice-500'
+                          : 'border-sky-500/20 focus:border-sky-500 focus:ring-ice-500'
                       }`}
                       placeholder="+33 1 72 54 13 60"
                     />
@@ -285,12 +285,12 @@ export default function Devis() {
                 </div>
 
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-ice-300 mb-2">Type de projet *</label>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Type de projet *</label>
                   <select
                     value={formData.projectType}
                     onChange={(e) => setFormData({...formData, projectType: e.target.value})}
                     required
-                    className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all"
+                    className="w-full bg-sky-50/50 border border-sky-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all"
                   >
                     <option value="">Sélectionnez un type</option>
                     <option value="creation">Création nouvelle chambre froide</option>
@@ -301,12 +301,12 @@ export default function Devis() {
                 </div>
 
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-ice-300 mb-2">Type de froid *</label>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Type de froid *</label>
                   <select
                     value={formData.coldType}
                     onChange={(e) => setFormData({...formData, coldType: e.target.value})}
                     required
-                    className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all"
+                    className="w-full bg-sky-50/50 border border-sky-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all"
                   >
                     <option value="">Sélectionnez un type</option>
                     <option value="positif">Froid Positif (+0°C à +10°C)</option>
@@ -317,22 +317,22 @@ export default function Devis() {
                 </div>
 
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-ice-300 mb-2">Dimensions approximatives</label>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Dimensions approximatives</label>
                   <input
                     type="text"
                     value={formData.dimensions}
                     onChange={(e) => setFormData({...formData, dimensions: e.target.value})}
-                    className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-white/20"
+                    className="w-full bg-sky-50/50 border border-sky-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-white/20"
                     placeholder="Ex: 3m x 2m x 2.5m ou 15m³"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-ice-300 mb-2">Secteur d'activité</label>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Secteur d'activité</label>
                   <select
                     value={formData.sector}
                     onChange={(e) => setFormData({...formData, sector: e.target.value})}
-                    className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all"
+                    className="w-full bg-sky-50/50 border border-sky-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all"
                   >
                     <option value="">Sélectionnez un secteur</option>
                     <option value="restauration">Restauration</option>
@@ -344,20 +344,20 @@ export default function Devis() {
                 </div>
                 
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-ice-300 mb-2">Message / Détails du projet *</label>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Message / Détails du projet *</label>
                   <textarea
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required
                     rows={6}
-                    className="w-full bg-slate-900/50 border border-ice-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-white focus:outline-none focus:border-ice-500 focus:ring-1 focus:ring-ice-500 transition-all resize-none placeholder-white/20"
+                    className="w-full bg-sky-50/50 border border-sky-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all resize-none placeholder-white/20"
                     placeholder="Décrivez votre projet : contraintes particulières, délais souhaités, température précise, etc. Plus vous êtes précis, plus notre devis sera adapté à vos besoins."
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full text-white py-4 rounded-lg font-bold text-base sm:text-lg transition-all shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_35px_rgba(249,115,22,0.7)] hover:scale-105 active:scale-95 flex items-center justify-center space-x-2"
+                  className="w-full text-slate-900 py-4 rounded-lg font-bold text-base sm:text-lg transition-all shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_35px_rgba(249,115,22,0.7)] hover:scale-105 active:scale-95 flex items-center justify-center space-x-2"
                   style={{ backgroundColor: '#f97316' }}
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#ea580c'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f97316'}

@@ -2,6 +2,11 @@ import { useEffect } from 'react';
 
 export default function CustomCursor() {
   useEffect(() => {
+    // Désactiver le curseur personnalisé sur mobile
+    if (window.innerWidth < 1024) {
+      return;
+    }
+
     const cursorDot = document.querySelector('.cursor-dot') as HTMLElement;
     const cursorOutline = document.querySelector('.cursor-outline') as HTMLElement;
 

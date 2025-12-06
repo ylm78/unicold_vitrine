@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
 import MobileActionBar from './components/MobileActionBar';
 
 // Lazy load des pages pour le code splitting
@@ -27,10 +26,10 @@ const Luminaires = lazy(() => import('./pages/products/Luminaires'));
 
 // Composant de chargement
 const LoadingFallback = () => (
-  <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+  <div className="min-h-screen bg-white flex items-center justify-center">
     <div className="text-center">
-      <div className="w-16 h-16 border-4 border-ice-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-      <p className="text-ice-300">Chargement...</p>
+      <div className="w-16 h-16 border-4 border-sky-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-slate-600">Chargement...</p>
     </div>
   </div>
 );
@@ -38,10 +37,9 @@ const LoadingFallback = () => (
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-slate-950 flex flex-col">
-        <CustomCursor />
+      <div className="min-h-screen bg-white flex flex-col overflow-x-hidden">
         <Header />
-        <main className="flex-grow">
+        <main className="flex-grow overflow-x-hidden">
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Home />} />

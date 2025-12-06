@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://unicold.fr/sitemap.xml
+

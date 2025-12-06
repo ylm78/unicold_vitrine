@@ -126,9 +126,11 @@
 
 /* Animation marquee infinie améliorée */
 .animate-marquee-infinite {
-  animation: marquee-infinite 20s linear infinite;
+  animation: marquee-infinite 12s linear infinite;
   display: flex;
   width: max-content;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .animate-marquee-infinite:hover {
@@ -162,70 +164,49 @@ html {
 }
 
 body {
-  background-color: #020617;
-  color: #e0f2fe;
+  background-color: #ffffff;
+  color: #0f172a;
   overflow-x: hidden;
-  cursor: none; /* Custom cursor */
+  cursor: auto;
 }
 
-/* === CUSTOM CURSOR === */
-.cursor-dot,
-.cursor-outline {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 9999;
-  pointer-events: none;
-}
-
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #38bdf8;
-}
-
-.cursor-outline {
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(56, 189, 248, 0.5);
-  background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(0,0,0,0) 70%);
-  transition: width 0.2s, height 0.2s;
-}
 
 /* === GLASSMORPHISM === */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  box-shadow: 0 4px 30px rgba(14, 165, 233, 0.1);
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .glass-card {
-  background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.4s ease;
+  background: linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(240, 249, 255, 0.85) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(14, 165, 233, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.4);
-  transform: translateY(-5px);
-  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%);
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+  border-color: rgba(14, 165, 233, 0.4);
+  transform: translateY(-5px) translateZ(0);
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.2);
 }
 
 /* === TEXT GRADIENTS === */
 .text-gradient {
-  background: linear-gradient(to right, #e0f2fe, #38bdf8);
+  background: linear-gradient(to right, #0ea5e9, #0284c7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #00A3E0 0%, #006186 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -278,10 +259,12 @@ body {
 }
 
 /* === TRANSITIONS === */
-* {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+/* Optimisation : transitions uniquement sur les éléments interactifs */
+a, button, .glass-card, .glass-panel, img {
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
+  will-change: transform;
 }
 
 /* === HOVER EFFECTS === */
@@ -298,17 +281,48 @@ body {
 
 /* Désactiver les animations sur mobile pour les performances */
 @media (max-width: 768px) {
-  .animate-pulse,
-  .animate-marquee-infinite {
+  .animate-pulse {
     animation: none;
   }
   
   /* Réduire les effets de blur sur mobile */
   .glass-panel,
   .glass-card {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
+  
+  /* Désactiver les particules sur mobile */
+  #particles {
+    display: none;
+  }
+}
+
+/* Optimisation GPU pour les animations */
+@supports (transform: translateZ(0)) {
+  .animate-marquee-infinite,
+  .glass-card,
+  .glass-panel {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Prévenir le débordement horizontal sur mobile */
+* {
+  max-width: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
 }
 
 /* === SCROLL REVEAL === */
