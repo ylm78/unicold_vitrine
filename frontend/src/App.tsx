@@ -23,6 +23,7 @@ const PanneauxSandwich = lazy(() => import('./pages/products/PanneauxSandwich'))
 const Compresseurs = lazy(() => import('./pages/products/Compresseurs'));
 const Portes = lazy(() => import('./pages/products/Portes'));
 const Luminaires = lazy(() => import('./pages/products/Luminaires'));
+const SuppressionDonnees = lazy(() => import('./pages/SuppressionDonnees'));
 
 // Composant de chargement
 const LoadingFallback = () => (
@@ -60,6 +61,7 @@ function App() {
               <Route path="/solutions/industrie" element={<Industrie />} />
               <Route path="/solutions/medical" element={<Medical />} />
               <Route path="/mentions-legales" element={<MentionsLegales />} />
+              <Route path="/suppression-donnees" element={<SuppressionDonnees />} />
     </Routes>
           </Suspense>
   </main>

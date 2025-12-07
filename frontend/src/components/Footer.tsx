@@ -52,6 +52,7 @@ export default function Footer() {
               <li><Link to="/faq" className="hover:text-sky-500 transition">FAQ</Link></li>
               <li><Link to="/contact" className="hover:text-sky-500 transition">Contact</Link></li>
               <li><Link to="/mentions-legales" className="hover:text-sky-500 transition">Mentions Légales</Link></li>
+              <li><Link to="/suppression-donnees" className="hover:text-sky-500 transition">Suppression de données</Link></li>
             </ul>
           </div>
 

@@ -18,7 +18,8 @@ function VisitForm() {
     phone: '',
     preferredDate: '',
     preferredTime: '',
-    message: ''
+    message: '',
+    consent: false
   });
   const [status, setStatus] = useState('');
 
@@ -30,6 +31,47 @@ function VisitForm() {
     const templateID = 'template_u2iy10q';
     const publicKey = 'Q_4KZL1s7zXDPGjMz';
 
+    // Générer un ID unique pour cette demande (pour la gestion des données)
+    const requestId = `SHOW-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+    const timestamp = new Date().toISOString();
+
+    // Message structuré pour contact@unicold.fr
+    const message = `🆕 NOUVELLE DEMANDE DE VISITE SHOWROOM
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 INFORMATIONS CLIENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 Nom : ${formData.name}
+📧 Email : ${formData.email}
+📞 Téléphone : ${formData.phone || 'Non renseigné'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📅 PRÉFÉRENCES DE RENDEZ-VOUS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📆 Date souhaitée : ${formData.preferredDate || 'Non renseignée'}
+🕐 Heure souhaitée : ${formData.preferredTime || 'Non renseignée'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💬 MESSAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${formData.message || 'Aucun message'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔒 CONFORMITÉ RGPD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Consentement donné : Oui
+📝 ID de demande : ${requestId}
+📅 Date de la demande : ${new Date().toLocaleString('fr-FR')}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ IMPORTANT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Ces données doivent être stockées dans la base de données et peuvent être supprimées sur demande du client.
+Pour supprimer ces données, le client peut utiliser l'ID : ${requestId}
+ou contacter : contact@unicold.fr
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+
     emailjs
       .send(
         serviceID,
@@ -38,19 +80,24 @@ function VisitForm() {
           from_name: formData.name,
           from_email: formData.email,
           from_phone: formData.phone || 'Non renseigné',
-          message: `Demande de visite du dépôt\n\nDate souhaitée: ${formData.preferredDate || 'Non renseignée'}\nHeure souhaitée: ${formData.preferredTime || 'Non renseignée'}\n\nMessage: ${formData.message || 'Aucun message'}`,
+          subject: `[SHOWROOM] Demande de visite - ${formData.name}`,
+          message: message,
+          request_id: requestId,
+          timestamp: timestamp,
+          // Note: Le destinataire (contact@unicold.fr) doit être configuré dans le template EmailJS
         },
         publicKey
       )
       .then(() => {
-        setStatus('✅ Demande de visite envoyée avec succès ! Nous vous répondrons sous 2h pour confirmer votre rendez-vous.');
+        setStatus(`✅ Demande de visite envoyée avec succès ! Nous vous répondrons sous 2h pour confirmer votre rendez-vous.\n\n📝 Votre numéro de suivi : ${requestId}\n\n💡 Vous pouvez utiliser ce numéro pour demander la suppression de vos données si nécessaire.`);
         setFormData({
           name: '',
           email: '',
           phone: '',
           preferredDate: '',
           preferredTime: '',
-          message: ''
+          message: '',
+          consent: false
         });
       })
       .catch((error) => {
@@ -128,6 +175,25 @@ function VisitForm() {
           className="w-full bg-white border border-sky-500/20 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-slate-400"
           placeholder="Précisez vos besoins ou questions..."
         ></textarea>
+      </div>
+
+      {/* Consentement RGPD */}
+      <div className="flex items-start space-x-3 p-4 bg-sky-50/50 rounded-lg border border-sky-200/50">
+        <input
+          type="checkbox"
+          id="consent-visit"
+          required
+          checked={formData.consent}
+          onChange={(e) => setFormData({...formData, consent: e.target.checked})}
+          className="mt-1 w-4 h-4 text-sky-600 border-sky-300 rounded focus:ring-sky-500"
+        />
+        <label htmlFor="consent-visit" className="text-sm text-slate-700 leading-relaxed">
+          J'accepte que mes données personnelles soient utilisées pour organiser ma visite du showroom et être recontacté par Unicold. 
+          <Link to="/mentions-legales" className="text-sky-600 hover:text-sky-700 hover:underline ml-1">
+            En savoir plus sur la gestion de mes données
+          </Link>
+          <span className="text-red-500 ml-1">*</span>
+        </label>
       </div>
 
       <button
