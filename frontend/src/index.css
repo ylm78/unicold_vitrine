@@ -54,13 +54,10 @@
   }
 }
 
-@keyframes marquee-infinite {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+/* animation marquee : translate de 0 à -50% pour faire défiler la première moitié (puis la duplication) */
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes fadeInUp {
@@ -125,16 +122,23 @@
 }
 
 /* Animation marquee infinie améliorée */
+/* classe utilitaire pour l'animation */
 .animate-marquee-infinite {
-  animation: marquee-infinite 12s linear infinite;
-  display: flex;
-  width: max-content;
+  display: flex;                /* container de la 1ère + 2e rangée */
+  gap: 0;                       /* on gère le gap à l'intérieur des lignes */
+  animation: marquee 20s linear infinite;
   will-change: transform;
-  transform: translateZ(0);
 }
 
 .animate-marquee-infinite:hover {
   animation-play-state: paused;
+}
+
+/* optionnel : réduire le jitter sur mobile */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-infinite {
+    animation: none;
+  }
 }
 
 /* Classes utilitaires pour animations */

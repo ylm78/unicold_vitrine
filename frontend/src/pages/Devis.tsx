@@ -70,23 +70,36 @@ export default function Devis() {
     e.preventDefault();
     setStatus('Envoi en cours...');
 
-    const serviceID = 'service_qjwkxml';
-    const templateID = 'template_u2iy10q';
+    const serviceID = 'service_ixgvh57'; // Service pour devis@unicold.fr (celui marqué DEFAULT)
+    const templateID = 'template_57qr94g'; // Template pour devis@unicold.fr
     const publicKey = 'Q_4KZL1s7zXDPGjMz';
 
+    // Message structuré pour le template
+    const messageDetails = `Type de projet: ${formData.projectType || 'Non renseigné'}
+Type de froid: ${formData.coldType || 'Non renseigné'}
+Dimensions: ${formData.dimensions || 'Non renseigné'}
+Secteur: ${formData.sector || 'Non renseigné'}
+
+Message: ${formData.message || 'Aucun message'}`;
+
+    // Paramètres pour EmailJS - doivent correspondre aux variables du template
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      name: formData.name, // Pour le template qui utilise {{name}}
+      email: formData.email, // Pour le Reply To qui utilise {{email}}
+      from_phone: formData.phone || 'Non renseigné',
+      subject: `Demande de Devis - ${formData.name}`,
+      message: messageDetails,
+    };
+
+    console.log('🚀 Envoi EmailJS - Service:', serviceID, 'Template:', templateID);
+    console.log('📧 Paramètres:', templateParams);
+
     emailjs
-      .send(
-        serviceID,
-        templateID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          from_phone: formData.phone || 'Non renseigné',
-          message: `DEMANDE DE DEVIS\n\nType de projet: ${formData.projectType || 'Non renseigné'}\nType de froid: ${formData.coldType || 'Non renseigné'}\nDimensions: ${formData.dimensions || 'Non renseigné'}\nSecteur: ${formData.sector || 'Non renseigné'}\n\nMessage: ${formData.message || 'Aucun message'}`,
-        },
-        publicKey
-      )
-      .then(() => {
+      .send(serviceID, templateID, templateParams, publicKey)
+      .then((response) => {
+        console.log('✅ EmailJS Success:', response.status, response.text);
         setStatus('✅ Demande de devis envoyée avec succès ! Nous vous répondrons sous 2h.');
         setFormData({
           name: '',
@@ -100,8 +113,13 @@ export default function Devis() {
         });
       })
       .catch((error) => {
-        console.error('Erreur:', error);
-        setStatus('❌ Une erreur est survenue. Réessayez plus tard ou contactez-nous directement.');
+        console.error('❌ EmailJS Error:', {
+          status: error.status,
+          text: error.text,
+          serviceID: serviceID,
+          templateID: templateID
+        });
+        setStatus(`❌ Erreur lors de l'envoi (${error.status || 'Inconnu'}). ${error.text || 'Vérifiez la console pour plus de détails.'}`);
       });
   };
 
@@ -528,4 +546,3 @@ export default function Devis() {
     </div>
   );
 }
-

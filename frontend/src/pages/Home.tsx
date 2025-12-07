@@ -2,14 +2,7 @@ import { Snowflake, MapPin, Facebook, Instagram, Linkedin, ArrowRight, Wrench, C
 import { Link } from 'react-router-dom';
 import { useEffect, useState, FormEvent } from 'react';
 import emailjs from 'emailjs-com';
-import sncfLogo from '../assets/logo/sncf.png';
-import nashLogo from '../assets/logo/nash.png';
-import berlinerLogo from '../assets/logo/berliner.png';
-import meydanLogo from '../assets/logo/meydan.png';
-import afolelogo from '../assets/logo/a-fole.jpg';
-import subwaylogo from '../assets/logo/Logo-subway.png';
-import dominoslogo from '../assets/logo/Dominos_logo.png';
-import totallogo from '../assets/logo/Logo-total.png';
+import LogosMarquee from '../components/LogosMarquee';
 
 function VisitForm() {
   const [formData, setFormData] = useState({
@@ -27,7 +20,7 @@ function VisitForm() {
     e.preventDefault();
     setStatus('Envoi en cours...');
 
-    const serviceID = 'service_qjwkxml';
+    const serviceID = 'service_ugehbqe'; // Service pour contact@unicold.fr
     const templateID = 'template_u2iy10q';
     const publicKey = 'Q_4KZL1s7zXDPGjMz';
 
@@ -72,23 +65,24 @@ ou contacter : contact@unicold.fr
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
 
+    // Paramètres pour EmailJS - Le destinataire doit être configuré dans le template EmailJS
+    const templateParams = {
+      to_email: 'contact@unicold.fr', // Important : doit être dans le template aussi
+      to_name: 'Unicold',
+      from_name: formData.name,
+      from_email: formData.email,
+      reply_to: formData.email, // Pour pouvoir répondre directement
+      from_phone: formData.phone || 'Non renseigné',
+      subject: `[SHOWROOM] Demande de visite - ${formData.name}`,
+      message: message,
+      request_id: requestId,
+      timestamp: timestamp,
+    };
+
     emailjs
-      .send(
-        serviceID,
-        templateID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          from_phone: formData.phone || 'Non renseigné',
-          subject: `[SHOWROOM] Demande de visite - ${formData.name}`,
-          message: message,
-          request_id: requestId,
-          timestamp: timestamp,
-          // Note: Le destinataire (contact@unicold.fr) doit être configuré dans le template EmailJS
-        },
-        publicKey
-      )
-      .then(() => {
+      .send(serviceID, templateID, templateParams, publicKey)
+      .then((response) => {
+        console.log('EmailJS Success:', response.status, response.text);
         setStatus(`✅ Demande de visite envoyée avec succès ! Nous vous répondrons sous 2h pour confirmer votre rendez-vous.\n\n📝 Votre numéro de suivi : ${requestId}\n\n💡 Vous pouvez utiliser ce numéro pour demander la suppression de vos données si nécessaire.`);
         setFormData({
           name: '',
@@ -101,8 +95,12 @@ ou contacter : contact@unicold.fr
         });
       })
       .catch((error) => {
-        console.error('Erreur:', error);
-        setStatus('❌ Une erreur est survenue. Réessayez plus tard ou contactez-nous directement au +33 1 72 54 13 60 (gratuit) ou +33 6 62 64 94 21.');
+        console.error('EmailJS Error Details:', {
+          status: error.status,
+          text: error.text,
+          error: error
+        });
+        setStatus(`❌ Erreur lors de l'envoi (${error.status || 'Inconnu'}). Veuillez vérifier votre connexion et réessayer, ou contactez-nous directement au +33 1 72 54 13 60 (gratuit) ou +33 6 62 64 94 21.\n\nDétails techniques : ${error.text || 'Erreur inconnue'}`);
       });
   };
 
@@ -567,40 +565,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative overflow-hidden py-6 md:py-8">
-            <div className="flex items-center animate-marquee-infinite">
-              <div className="flex gap-8 md:gap-10 lg:gap-12 items-center flex-shrink-0">
-                {[sncfLogo, nashLogo, berlinerLogo, meydanLogo, afolelogo, subwaylogo, dominoslogo, totallogo].map((logo, idx) => (
-                  <div key={`first-${idx}`} className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40">
-                    <div className="bg-white p-4 md:p-6 rounded-2xl border border-slate-200 group-hover:border-sky-300 transition-all shadow-md group-hover:shadow-lg w-full h-full flex items-center justify-center overflow-hidden">
-                      <img
-                        src={logo}
-                        alt={`Client ${idx + 1}`}
-                        className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain opacity-100 group-hover:scale-105 transition-all duration-300"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                </div>
-                </div>
-                ))}
-              </div>
-              <div className="flex gap-8 md:gap-10 lg:gap-12 items-center flex-shrink-0">
-                {[sncfLogo, nashLogo, berlinerLogo, meydanLogo, afolelogo, subwaylogo, dominoslogo, totallogo].map((logo, idx) => (
-                  <div key={`second-${idx}`} className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40">
-                    <div className="bg-white p-4 md:p-6 rounded-2xl border border-slate-200 group-hover:border-sky-300 transition-all shadow-md group-hover:shadow-lg w-full h-full flex items-center justify-center overflow-hidden">
-                      <img
-                        src={logo}
-                        alt={`Client ${idx + 1}`}
-                        className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain opacity-100 group-hover:scale-105 transition-all duration-300"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                </div>
-                </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <LogosMarquee />
         </div>
       </section>
     </div>

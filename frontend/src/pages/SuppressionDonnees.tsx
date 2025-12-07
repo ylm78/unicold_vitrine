@@ -16,7 +16,7 @@ export default function SuppressionDonnees() {
     setIsSubmitting(true);
     setStatus('Traitement de votre demande en cours...');
 
-    const serviceID = 'service_qjwkxml';
+    const serviceID = 'service_ugehbqe'; // Service pour contact@unicold.fr
     const templateID = 'template_u2iy10q';
     const publicKey = 'Q_4KZL1s7zXDPGjMz';
 
