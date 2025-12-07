@@ -273,10 +273,10 @@ a, button, .glass-card, .glass-panel, img {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  }
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
 }
 
 /* Désactiver les animations sur mobile pour les performances */

@@ -1,12 +1,9 @@
 import { Shield, CheckCircle, Thermometer, FileText, AlertCircle, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumb';
 
 export default function Medical() {
   return (
     <div>
-      <Breadcrumb items={[{ label: 'Solutions', path: '/services' }, { label: 'Médical & Pharmaceutique' }]} />
-      
       <section className="relative py-32 bg-white overflow-hidden border-b border-sky-500/10">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>

@@ -1,6 +1,5 @@
 import { useState, lazy, Suspense } from 'react';
 import { X, PlayCircle } from 'lucide-react';
-import Breadcrumb from '../components/Breadcrumb';
 
 // Lazy load des vidéos pour réduire le bundle initial
 const restaurantVideo = '/assets/2022.mp4';
@@ -98,22 +97,19 @@ export default function Realisations() {
 
   return (
     <div>
-      <Breadcrumb items={[{ label: 'Réalisations' }]} />
       {/* Hero */}
-      <section className="relative py-32 bg-white overflow-hidden border-b border-sky-500/10">
+      <section className="relative pt-20 md:pt-24 pb-16 md:pb-20 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
-          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent"></div>
-          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
-          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent"></div>
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent"></div>
         </div>
         {/* Accent lumineux subtil */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-ice-400/5 rounded-full blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-          <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 text-slate-900">Nos Réalisations</h1>
-          <p className="text-xl md:text-2xl text-slate-600/80 max-w-3xl mx-auto">
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900">Nos Réalisations</h1>
+          <p className="text-base md:text-lg text-slate-600/80 max-w-2xl mx-auto">
             Découvrez nos projets récents
           </p>
         </div>
@@ -189,13 +185,13 @@ export default function Realisations() {
                       <div>
                         <p className="text-xs font-bold text-sky-500 mb-1">La Solution Unicold :</p>
                         <p className="text-sm text-slate-600/70">{project.solution}</p>
-                      </div>
+                    </div>
                     )}
                     {project.result && (
                       <div>
                         <p className="text-xs font-bold text-emerald-400 mb-1">Le Résultat :</p>
                         <p className="text-sm text-slate-600/70">{project.result}</p>
-                      </div>
+                    </div>
                     )}
                   </div>
 

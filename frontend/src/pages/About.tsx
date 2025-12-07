@@ -1,11 +1,9 @@
 import { Award, Users, Target, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../components/Breadcrumb';
 
 export default function About() {
   return (
     <div>
-      <Breadcrumb items={[{ label: 'À Propos' }]} />
       <section className="relative py-32 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">

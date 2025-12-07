@@ -55,10 +55,10 @@ export default function Header() {
 
           <div className="hidden xl:block">
             <div className="ml-10 flex items-baseline space-x-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
                   className={`hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive(link.path) ? 'text-sky-600' : 'text-slate-700'
                   } ${
@@ -67,11 +67,11 @@ export default function Header() {
                       : link.urgent
                       ? 'bg-red-600 hover:bg-red-500 text-white px-5 rounded-full shadow-[0_0_15px_rgba(239,68,68,0.5)] animate-pulse'
                       : ''
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
             </div>
           </div>
 
@@ -85,26 +85,26 @@ export default function Header() {
         </div>
       </div>
 
-      {mobileMenuOpen && (
+        {mobileMenuOpen && (
         <div className="xl:hidden glass-panel absolute w-full animate-fade-in mt-16 border-t border-sky-200 border-b border-sky-200">
           <div className="px-4 pt-4 pb-6 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setMobileMenuOpen(false)}
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-medium text-slate-900 hover:bg-sky-50 transition-colors ${
                   isActive(link.path) ? 'bg-sky-50' : ''
                 } ${
                   link.urgent ? 'bg-red-600/20 border border-red-500/30' : ''
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </nav>
   );
 }

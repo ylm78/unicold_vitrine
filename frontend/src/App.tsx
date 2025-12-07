@@ -38,21 +38,21 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white flex flex-col overflow-x-hidden">
-        <Header />
+  <Header />
         <main className="flex-grow overflow-x-hidden">
           <Suspense fallback={<LoadingFallback />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/produits" element={<Products />} />
-              <Route path="/produits/panneaux-sandwich" element={<PanneauxSandwich />} />
-              <Route path="/produits/compresseurs" element={<Compresseurs />} />
-              <Route path="/produits/portes" element={<Portes />} />
-              <Route path="/produits/luminaires" element={<Luminaires />} />
-              <Route path="/realisations" element={<Realisations />} />
-              <Route path="/a-propos" element={<About />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/contact" element={<Contact />} />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/produits" element={<Products />} />
+      <Route path="/produits/panneaux-sandwich" element={<PanneauxSandwich />} />
+      <Route path="/produits/compresseurs" element={<Compresseurs />} />
+      <Route path="/produits/portes" element={<Portes />} />
+      <Route path="/produits/luminaires" element={<Luminaires />} />
+      <Route path="/realisations" element={<Realisations />} />
+      <Route path="/a-propos" element={<About />} />
+      <Route path="/faq" element={<FAQ />} />
+      <Route path="/contact" element={<Contact />} />
               <Route path="/devis" element={<Devis />} />
               <Route path="/depannage" element={<Depannage />} />
               <Route path="/aides-financement" element={<AidesFinancement />} />
@@ -60,12 +60,12 @@ function App() {
               <Route path="/solutions/industrie" element={<Industrie />} />
               <Route path="/solutions/medical" element={<Medical />} />
               <Route path="/mentions-legales" element={<MentionsLegales />} />
-            </Routes>
+    </Routes>
           </Suspense>
-        </main>
-        <Footer />
+  </main>
+  <Footer />
         <MobileActionBar />
-      </div>
+</div>
     </Router>
   );
 }

@@ -1,12 +1,9 @@
 import { Phone, Clock, MapPin, Wrench, AlertTriangle, CheckCircle, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../components/Breadcrumb';
 
 export default function Depannage() {
   return (
     <div>
-      <Breadcrumb items={[{ label: 'Dépannage Urgence 24/7' }]} />
-      
       {/* Hero Section Urgence */}
       <section className="relative py-32 bg-gradient-to-br from-red-950 via-white to-red-950 overflow-hidden border-b border-red-500/20">
         {/* Lignes géométriques subtiles */}

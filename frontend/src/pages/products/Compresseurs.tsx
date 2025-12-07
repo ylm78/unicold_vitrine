@@ -1,11 +1,9 @@
 import { Snowflake, CheckCircle, Zap, Settings, Droplet, Gauge } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumb';
 
 export default function Compresseurs() {
   return (
     <div>
-      <Breadcrumb items={[{ label: 'Produits', path: '/produits' }, { label: 'Compresseurs' }]} />
       <section className="relative py-32 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">

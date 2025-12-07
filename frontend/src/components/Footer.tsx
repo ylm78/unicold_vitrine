@@ -15,9 +15,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 mb-6 md:mb-8">
           <div className="flex items-center gap-1.5 md:gap-2">
             <Snowflake className="h-5 w-5 md:h-6 md:w-6 text-sky-500" />
-            <img
-              src={logo}
-              alt="Unicold"
+              <img
+                src={logo}
+                alt="Unicold"
               className="h-8 md:h-10"
             />
             <span className="font-display font-bold text-lg md:text-xl text-slate-900">UNI<span className="text-sky-500">COLD</span></span>
@@ -26,7 +26,7 @@ export default function Footer() {
             <p>© 2025 Unicold.fr - Tous droits réservés</p>
             <p className="mt-1 md:mt-2">SIRET : 881 522 296 00014</p>
           </div>
-        </div>
+            </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12 mb-6 md:mb-8">
           <div>

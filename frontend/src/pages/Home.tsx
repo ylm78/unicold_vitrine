@@ -193,28 +193,28 @@ export default function Home() {
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight px-2 text-slate-900">
             L'Excellence du <br />
             <span className="text-gradient">Froid Maîtrisé</span>
-          </h1>
+            </h1>
           
           <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 font-light px-4">
             Conception, installation et maintenance de chambres froides positives et négatives
           </p>
           
           <div className="mt-8 md:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
-            <Link
-              to="/contact"
+              <Link
+                to="/contact"
               className="group relative w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 text-base sm:text-lg bg-accent hover:bg-accent-hover text-slate-900 rounded-lg overflow-hidden transition-all hover:scale-105 shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_35px_rgba(249,115,22,0.7)]"
-            >
+              >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]"></div>
               <span className="relative font-semibold flex items-center gap-2">
                 Demander un Devis Gratuit <ArrowRight className="w-4 h-4" />
               </span>
-            </Link>
-            <Link
+              </Link>
+              <Link
               to="/services"
               className="px-8 py-4 glass-panel rounded-lg text-slate-900 font-medium hover:bg-white/10 transition-all flex items-center justify-center gap-2"
-            >
+              >
               <Wrench className="w-4 h-4" /> Nos Services
-            </Link>
+              </Link>
           </div>
         </div>
       </section>
@@ -346,19 +346,19 @@ export default function Home() {
                   </div>
                   <div className="mb-2 inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 bg-sky-300/20 border border-sky-500/30 rounded-full text-xs font-bold text-slate-700 backdrop-blur-sm">
                     {site.type}
-                  </div>
+              </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">{site.name}</h3>
                   <p className="text-slate-600/60 text-sm sm:text-base md:text-lg mb-2">{site.location}</p>
                   <p className="text-slate-700 text-xs sm:text-sm md:text-base font-medium mb-2 sm:mb-3">{site.address}</p>
                   {site.isDepot && (
                     <div className="mt-2 inline-block px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-300 backdrop-blur-sm">
                       Dépôt visitable
-                    </div>
+            </div>
                   )}
-                </div>
+              </div>
               );
             })}
-          </div>
+            </div>
 
           {/* Section Visite du Dépôt */}
           <div className="max-w-4xl mx-auto">
@@ -514,8 +514,8 @@ export default function Home() {
                         loading="lazy"
                         decoding="async"
                       />
-                    </div>
-                  </div>
+                </div>
+                </div>
                 ))}
               </div>
               <div className="flex gap-8 md:gap-10 lg:gap-12 items-center flex-shrink-0">
@@ -529,8 +529,8 @@ export default function Home() {
                         loading="lazy"
                         decoding="async"
                       />
-                    </div>
-                  </div>
+                </div>
+                </div>
                 ))}
               </div>
             </div>
