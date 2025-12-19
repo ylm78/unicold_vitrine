@@ -1,5 +1,7 @@
 import { useState, lazy, Suspense } from 'react';
 import { X, PlayCircle } from 'lucide-react';
+import SEO from '../components/SEO';
+import { getServiceSchema } from '../utils/schema';
 
 // Lazy load des vidéos pour réduire le bundle initial
 const restaurantVideo = '/assets/2022.mp4';
@@ -17,9 +19,9 @@ export default function Realisations() {
       date: '2025',
       image: '/chambre-froide-neg.jpg',
       client: 'Restaurant étoilé',
-      challenge: 'Besoin de deux chambres froides (positive et négative) dans un espace très réduit sous escalier.',
-      solution: 'Conception sur-mesure avec chambres imbriquées, découpe des panneaux selon plans architecturaux, groupe frigorifique déporté silencieux pour ne pas déranger les clients.',
-      result: 'Installation réussie en 3 jours, conformité HACCP, client satisfait.',
+      challenge: 'Espace réduit sous escalier.',
+      solution: 'Chambres imbriquées sur-mesure, groupe déporté silencieux.',
+      result: 'Installation en 3 jours, conforme HACCP.',
       videoUrl: restaurantVideo,
     },
     {
@@ -30,9 +32,9 @@ export default function Realisations() {
       date: '2025',
       image: '/azz.jpg',
       client: 'Restaurant Berliner',
-      challenge: 'Installation d\'une chambre froide positive dans un restaurant en activité, contraintes de bruit et d\'espace.',
-      solution: 'Groupe monobloc silencieux, installation en horaires décalés pour ne pas perturber le service, formation du personnel.',
-      result: 'Installation sans interruption du service, optimisation énergétique de 25%.',
+      challenge: 'Restaurant en activité, contraintes bruit et espace.',
+      solution: 'Groupe silencieux, installation horaires décalés.',
+      result: 'Sans interruption, économie énergie 25%.',
       videoUrl: restaurantVideo2,
     },
     {
@@ -43,9 +45,9 @@ export default function Realisations() {
       date: '2024',
       image: '/realisations/entrepot-panneaux.jpg',
       client: 'Boucherie artisanale',
-      challenge: 'Espace très réduit sous escalier, besoin d\'une chambre négative pour congélation et d\'une positive pour produits frais.',
-      solution: 'Découpe des panneaux sur mesure selon plans, groupe frigorifique déporté silencieux, installation en 2 jours.',
-      result: 'Double chambre fonctionnelle dans un espace de 8m², client très satisfait.',
+      challenge: 'Espace réduit, besoin double chambre (positive et négative).',
+      solution: 'Panneaux sur mesure, groupe déporté, installation 2 jours.',
+      result: 'Double chambre fonctionnelle en 8m².',
       images: ['/realisations/entrepot-panneaux.jpg'],
     },
     {
@@ -56,9 +58,9 @@ export default function Realisations() {
       date: '2024',
       image: '/realisations/couloir-chambres.jpg',
       client: 'Entreprise agroalimentaire',
-      challenge: 'Création d\'un complexe avec 5 chambres froides à températures différentes (-25°C, -18°C, +2°C, +4°C, +8°C).',
-      solution: 'Bureau d\'études thermique complet, conception modulaire, groupes frigorifiques haute performance, système de monitoring à distance.',
-      result: 'Installation de 200m² de chambres froides, optimisation énergétique globale, maintenance préventive sous contrat.',
+      challenge: '5 chambres à températures différentes (-25°C à +8°C).',
+      solution: 'Conception modulaire, monitoring à distance.',
+      result: '200m² installés, optimisation énergétique.',
       images: ['/realisations/couloir-chambres.jpg'],
     },
     {
@@ -69,9 +71,9 @@ export default function Realisations() {
       date: '2024',
       image: '/realisations/installation-complete.jpg',
       client: 'Plateforme logistique',
-      challenge: 'Installation de plusieurs chambres froides pour stockage de produits pharmaceutiques avec traçabilité HACCP.',
-      solution: 'Chambres froides modulaires, système de monitoring IoT, documentation complète pour audits.',
-      result: 'Installation conforme aux normes pharmaceutiques, certification obtenue, contrat de maintenance annuel.',
+      challenge: 'Stockage produits pharmaceutiques, traçabilité HACCP.',
+      solution: 'Chambres modulaires, monitoring IoT.',
+      result: 'Conforme normes pharmaceutiques, certification obtenue.',
       images: ['/realisations/installation-complete.jpg'],
     },
     {
@@ -82,9 +84,9 @@ export default function Realisations() {
       date: '2024',
       image: '/realisations/chambre-modulaire.jpg',
       client: 'Supermarket',
-      challenge: 'Chambre froide modulaire avec compartiments séparés pour différents types de produits (viandes, poissons, légumes).',
-      solution: 'Conception modulaire avec séparations internes, portes multiples, éclairage LED adapté, sol antidérapant.',
-      result: 'Organisation optimale des stocks, réduction des pertes, conformité HACCP.',
+      challenge: 'Compartiments séparés (viandes, poissons, légumes).',
+      solution: 'Séparations internes, portes multiples, LED adapté.',
+      result: 'Organisation optimale, réduction pertes, conforme HACCP.',
       images: ['/realisations/chambre-modulaire.jpg'],
     },
   ];
@@ -97,6 +99,13 @@ export default function Realisations() {
 
   return (
     <div>
+      <SEO
+        title="Réalisations Chambres Froides | Projets Clients | Unicold"
+        description="Découvrez nos réalisations de chambres froides : restaurants, boucheries, supermarchés, entrepôts. Projets réussis en Île-de-France et Centre-Val de Loire. Témoignages clients."
+        keywords="réalisations chambre froide, projets chambre froide, installation chambre froide restaurant, chambre froide boucherie, témoignages clients"
+        canonical="https://unicold.fr/realisations"
+        schema={getServiceSchema("Réalisations chambres froides", "Portfolio de nos réalisations d'installation de chambres froides pour restaurants, commerces et industrie.")}
+      />
       {/* Hero */}
       <section className="relative pt-20 md:pt-24 pb-16 md:pb-20 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
@@ -109,9 +118,6 @@ export default function Realisations() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-ice-400/5 rounded-full blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900">Nos Réalisations</h1>
-          <p className="text-base md:text-lg text-slate-600/80 max-w-2xl mx-auto">
-            Découvrez nos projets récents
-          </p>
         </div>
       </section>
 
@@ -158,39 +164,33 @@ export default function Realisations() {
                 <div className="p-6">
                   <h3
                     onClick={() => project.videoUrl && handleOpenVideo(project)}
-                    className="text-2xl font-bold text-slate-900 mb-1 hover:text-slate-700 transition cursor-pointer"
+                    className="text-2xl md:text-3xl font-bold text-slate-900 mb-2 hover:text-slate-700 transition cursor-pointer"
                   >
                     {project.title}
                   </h3>
 
-                  <p className="text-sm text-sky-500 mb-4">
+                  <p className="text-base text-sky-500 mb-6 font-medium">
                     {project.category} • {project.location} • {project.date}
                   </p>
 
-                  {/* Étude de cas détaillée */}
+                  {/* Étude de cas simplifiée */}
                   <div className="space-y-4 mb-4">
-                    {project.client && (
-                      <div>
-                        <p className="text-xs font-bold text-slate-700 mb-1">Le Client :</p>
-                        <p className="text-sm text-slate-600/70">{project.client}</p>
-                      </div>
-                    )}
                     {project.challenge && (
                       <div>
-                        <p className="text-xs font-bold text-red-400 mb-1">Le Défi :</p>
-                        <p className="text-sm text-slate-600/70">{project.challenge}</p>
+                        <p className="text-sm md:text-base font-bold text-red-400 mb-2">Défi :</p>
+                        <p className="text-base md:text-lg text-slate-700 leading-relaxed">{project.challenge}</p>
                       </div>
                     )}
                     {project.solution && (
                       <div>
-                        <p className="text-xs font-bold text-sky-500 mb-1">La Solution Unicold :</p>
-                        <p className="text-sm text-slate-600/70">{project.solution}</p>
+                        <p className="text-sm md:text-base font-bold text-sky-500 mb-2">Solution :</p>
+                        <p className="text-base md:text-lg text-slate-700 leading-relaxed">{project.solution}</p>
                     </div>
                     )}
                     {project.result && (
                       <div>
-                        <p className="text-xs font-bold text-emerald-400 mb-1">Le Résultat :</p>
-                        <p className="text-sm text-slate-600/70">{project.result}</p>
+                        <p className="text-sm md:text-base font-bold text-emerald-400 mb-2">Résultat :</p>
+                        <p className="text-base md:text-lg text-slate-700 leading-relaxed">{project.result}</p>
                     </div>
                     )}
                   </div>

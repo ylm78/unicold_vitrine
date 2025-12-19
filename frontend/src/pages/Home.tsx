@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState, FormEvent } from 'react';
 import emailjs from 'emailjs-com';
 import LogosMarquee from '../components/LogosMarquee';
+import SEO from '../components/SEO';
+import { getLocalBusinessSchema } from '../utils/schema';
 
 function VisitForm() {
   const [formData, setFormData] = useState({
@@ -108,23 +110,27 @@ ou contacter : contact@unicold.fr
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-700">Nom Complet *</label>
+          <label htmlFor="visit-name" className="text-sm font-medium text-slate-900">Nom Complet *</label>
           <input
+            id="visit-name"
             type="text"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
+            aria-required="true"
             className="w-full bg-white border border-sky-300 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder-slate-400"
             placeholder="Jean Dupont"
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-700">Email *</label>
+          <label htmlFor="visit-email" className="text-sm font-medium text-slate-900">Email *</label>
           <input
+            id="visit-email"
             type="email"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             required
+            aria-required="true"
             className="w-full bg-white border border-sky-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-slate-400"
             placeholder="contact@entreprise.com"
           />
@@ -133,19 +139,22 @@ ou contacter : contact@unicold.fr
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-700">Téléphone *</label>
+          <label htmlFor="visit-phone" className="text-sm font-medium text-slate-900">Téléphone *</label>
           <input
+            id="visit-phone"
             type="tel"
             value={formData.phone}
             onChange={(e) => setFormData({...formData, phone: e.target.value})}
             required
+            aria-required="true"
             className="w-full bg-white border border-sky-500/20 rounded-lg px-4 py-3.5 sm:py-3 text-base sm:text-sm text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all placeholder-slate-400"
             placeholder="06 12 34 56 78"
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-700">Date souhaitée</label>
+          <label htmlFor="visit-date" className="text-sm font-medium text-slate-900">Date souhaitée</label>
           <input
+            id="visit-date"
             type="date"
             value={formData.preferredDate}
             onChange={(e) => setFormData({...formData, preferredDate: e.target.value})}
@@ -155,18 +164,20 @@ ou contacter : contact@unicold.fr
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium text-slate-700">Heure souhaitée</label>
+        <label htmlFor="visit-time" className="text-sm font-medium text-slate-900">Heure souhaitée</label>
         <input
+          id="visit-time"
           type="time"
           value={formData.preferredTime}
           onChange={(e) => setFormData({...formData, preferredTime: e.target.value})}
-          className="w-full bg-white border border-sky-500/20 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all"
+          className="w-full bg-white border border-sky-500/20 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-ice-500 transition-all min-h-[44px]"
         />
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium text-slate-700">Message (optionnel)</label>
+        <label htmlFor="visit-message" className="text-sm font-medium text-slate-900">Message (optionnel)</label>
         <textarea
+          id="visit-message"
           rows={4}
           value={formData.message}
           onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -196,18 +207,19 @@ ou contacter : contact@unicold.fr
 
       <button
         type="submit"
-        className="w-full bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-slate-900 font-bold py-4 rounded-lg shadow-lg transform transition hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
+        aria-label="Demander un rendez-vous pour visiter le showroom"
+        className="w-full bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-slate-900 font-bold py-4 rounded-lg shadow-lg transform transition hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 min-h-[44px]"
       >
-        <Calendar className="w-5 h-5" />
-        Demander un rendez-vous
+        <Calendar className="w-5 h-5" aria-hidden="true" />
+        <span>Demander un rendez-vous</span>
       </button>
 
-      {status && (
+          {status && (
         <div className={`mt-6 p-4 rounded-xl text-center font-semibold ${
           status.includes('✅') 
-            ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' 
-            : 'bg-red-500/20 text-red-300 border border-red-500/30'
-        }`}>
+            ? 'bg-emerald-500/20 text-emerald-700 border border-emerald-500/30' 
+            : 'bg-red-500/20 text-red-700 border border-red-500/30'
+        }`} role="alert" aria-live="polite">
           {status}
         </div>
       )}
@@ -242,6 +254,12 @@ export default function Home() {
 
   return (
     <div>
+      <SEO
+        title="Chambres Froides Professionnelles | Installation & Maintenance | Unicold"
+        description="Expert en chambres froides positives et négatives. Installation, vente et maintenance professionnelle. Dépannage 24/7 en Île-de-France et Centre-Val de Loire. Devis gratuit."
+        keywords="chambre froide, chambre froide positive, chambre froide négative, installation chambre froide, maintenance chambre froide, dépannage chambre froide, Paris, Île-de-France, Centre-Val de Loire"
+        schema={getLocalBusinessSchema()}
+      />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-white to-blue-50"></div>
@@ -254,32 +272,50 @@ export default function Home() {
             <span className="text-slate-700 text-sm font-medium tracking-widest uppercase">Expertise Froid Industriel & Commercial</span>
           </div>
           
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight px-2 text-slate-900">
-            L'Excellence du <br />
-            <span className="text-gradient">Froid Maîtrisé</span>
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight px-2 text-sky-500">
+            Chambres Froides Professionnelles
             </h1>
           
           <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 font-light px-4">
-            Conception, installation et maintenance de chambres froides positives et négatives
+            Installation, vente et maintenance de chambres froides. Dépannage 24/7 en Île-de-France et Centre-Val de Loire.
           </p>
           
           <div className="mt-8 md:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
               <Link
                 to="/contact"
-              className="group relative w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 text-base sm:text-lg bg-accent hover:bg-accent-hover text-slate-900 rounded-lg overflow-hidden transition-all hover:scale-105 shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_35px_rgba(249,115,22,0.7)]"
+                aria-label="Demander un devis gratuit pour une chambre froide"
+                className="group relative w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 text-base sm:text-lg bg-accent hover:bg-accent-hover text-slate-900 rounded-lg overflow-hidden transition-all hover:scale-105 shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_35px_rgba(249,115,22,0.7)] min-h-[44px]"
               >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]"></div>
               <span className="relative font-semibold flex items-center gap-2">
-                Demander un Devis Gratuit <ArrowRight className="w-4 h-4" />
+                Demander un Devis Gratuit <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </span>
               </Link>
               <Link
               to="/services"
-              className="px-8 py-4 glass-panel rounded-lg text-slate-900 font-medium hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+              aria-label="Découvrir nos services de chambres froides"
+              className="px-8 py-4 glass-panel rounded-lg text-slate-900 font-medium hover:bg-white/10 transition-all flex items-center justify-center gap-2 min-h-[44px]"
               >
-              <Wrench className="w-4 h-4" /> Nos Services
+              <Wrench className="w-4 h-4" aria-hidden="true" /> <span>Nos Services</span>
               </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Clients Logos */}
+      <section className="bg-gradient-to-b from-white via-sky-50 to-white py-24 border-t border-sky-200 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full" style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+            backgroundSize: '30px 30px'
+          }}></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3 md:mb-4 px-4">Ils nous font confiance</h2>
+          </div>
+
+          <LogosMarquee />
         </div>
       </section>
 
@@ -293,25 +329,23 @@ export default function Home() {
           <div className="glass-panel p-6 sm:p-8 md:p-12 rounded-2xl border-2 border-red-500/40">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
               <div className="flex-1 text-center md:text-left">
-                <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-red-500/20 border border-red-500/50 rounded-full text-red-300 font-bold text-xs md:text-sm">
+                <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-red-500/20 border border-red-500/50 rounded-full text-red-700 font-bold text-xs md:text-sm">
                   ⚡ URGENCE 24/7
                 </div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3 md:mb-4">
                   Dépannage Express sous 4h
                 </h2>
-                <p className="text-base sm:text-lg md:text-xl text-slate-600/80 mb-4">
-                  Panne de chambre froide ? Nous intervenons 24h/24 et 7j/7 partout en Île-de-France et Centre-Val de Loire.
-                </p>
-                <p className="text-sm sm:text-base md:text-lg text-red-300 font-semibold">
-                  📞 Appelez-nous au <a href="tel:+33172541360" className="text-slate-900 hover:underline">+33 1 72 54 13 60</a> <span className="text-emerald-300 text-xs md:text-sm">(Gratuit)</span> ou <a href="tel:+33662649421" className="text-slate-900 hover:underline">+33 6 62 64 94 21</a>
+                <p className="text-base sm:text-lg md:text-xl text-slate-900 font-semibold mb-4">
+                  📞 <a href="tel:+33172541360" className="text-red-600 hover:underline font-bold">+33 1 72 54 13 60</a> <span className="text-emerald-600 text-sm font-bold">(Gratuit)</span> ou <a href="tel:+33662649421" className="text-red-600 hover:underline font-bold">+33 6 62 64 94 21</a>
                 </p>
               </div>
               <div className="flex-shrink-0 w-full sm:w-auto">
                 <a
                   href="tel:+33172541360"
-                  className="group relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-red-600 hover:bg-red-500 text-slate-900 rounded-xl font-bold text-base md:text-lg transition-all shadow-[0_0_30px_rgba(239,68,68,0.5)] hover:scale-105 flex items-center justify-center gap-3"
+                  aria-label="Appeler le service de dépannage d'urgence au +33 1 72 54 13 60"
+                  className="group relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-red-600 hover:bg-red-500 text-white rounded-xl font-bold text-base md:text-lg transition-all shadow-[0_0_30px_rgba(239,68,68,0.5)] hover:scale-105 flex items-center justify-center gap-3 min-h-[44px]"
                 >
-                  <Phone className="w-5 h-5 md:w-6 md:h-6" />
+                  <Phone className="w-5 h-5 md:w-6 md:h-6" aria-hidden="true" />
                   <span>Appeler maintenant</span>
                 </a>
               </div>
@@ -324,16 +358,16 @@ export default function Home() {
       <section className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3 md:mb-4 px-4">Nos Services Experts</h2>
-            <p className="text-sm sm:text-base text-slate-600/60 max-w-2xl mx-auto px-4">Un accompagnement complet pour garantir la pérennité de vos installations.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3 md:mb-4 px-4">Nos Services</h2>
+            <p className="text-sm sm:text-base text-slate-600/60 max-w-2xl mx-auto px-4">Solutions complètes pour tous vos besoins en chambres froides.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-4">
             <div className="glass-card p-6 rounded-xl group hover:bg-ice-900/20 transition-all">
               <div className="w-14 h-14 rounded-full bg-sky-300/10 flex items-center justify-center mb-6 text-sky-500 group-hover:scale-110 transition-transform">
                 <Snowflake className="w-7 h-7" />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Vente & Fourniture</h3>
-              <p className="text-sm text-slate-600/60">Large gamme de chambres froides et matériaux professionnels. Panneaux isolants, portes, groupes frigorifiques.</p>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Vente</h3>
+              <p className="text-sm text-slate-600/60">Chambres froides positives et négatives. Panneaux, portes, groupes frigorifiques.</p>
             </div>
 
             <div className="glass-card p-5 sm:p-6 rounded-xl group hover:bg-ice-900/20 transition-all">
@@ -341,7 +375,7 @@ export default function Home() {
                 <Wrench className="w-6 h-6 sm:w-7 sm:h-7" />
               </div>
               <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">Installation</h3>
-              <p className="text-xs sm:text-sm text-slate-600/60">Monteurs frigoristes qualifiés. Montage rapide et conforme HACCP.</p>
+              <p className="text-xs sm:text-sm text-slate-600/60">Monteurs qualifiés QualiFroid. Conforme HACCP.</p>
             </div>
 
             <div className="glass-card p-5 sm:p-6 rounded-xl group hover:bg-ice-900/20 transition-all">
@@ -350,8 +384,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Solutions Sur-Mesure</h3>
-              <p className="text-sm text-slate-600/60">Conception adaptée à vos contraintes d'espace et besoins spécifiques.</p>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Sur-Mesure</h3>
+              <p className="text-sm text-slate-600/60">Conception adaptée à vos contraintes d'espace.</p>
             </div>
 
             <div className="glass-card p-6 rounded-xl group hover:bg-ice-900/20 transition-all">
@@ -360,8 +394,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">SAV 24/7</h3>
-              <p className="text-sm text-slate-600/60">Intervention d'urgence sous 4h en cas de panne critique. Astreinte permanente.</p>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Maintenance 24/7</h3>
+              <p className="text-sm text-slate-600/60">Dépannage d'urgence sous 4h. Astreinte permanente.</p>
             </div>
           </div>
         </div>
@@ -372,7 +406,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Nos Implantations</h2>
-            <p className="text-slate-600/60 max-w-2xl mx-auto">Trois sites stratégiques pour vous servir en Île-de-France et Centre-Val de Loire</p>
+            <p className="text-slate-600/60 max-w-2xl mx-auto">Île-de-France et Centre-Val de Loire</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto mb-8 sm:mb-12 md:mb-16">
@@ -415,7 +449,7 @@ export default function Home() {
                   <p className="text-slate-600/60 text-sm sm:text-base md:text-lg mb-2">{site.location}</p>
                   <p className="text-slate-700 text-xs sm:text-sm md:text-base font-medium mb-2 sm:mb-3">{site.address}</p>
                   {site.isDepot && (
-                    <div className="mt-2 inline-block px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-300 backdrop-blur-sm">
+                    <div className="mt-2 inline-block px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-700 backdrop-blur-sm">
                       Dépôt visitable
             </div>
                   )}
@@ -432,12 +466,11 @@ export default function Home() {
                   <Building2 className="w-10 h-10" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Visitez Notre Showroom</h2>
-                <p className="text-slate-600/80 text-lg mb-2">
+                <p className="text-slate-600/80 text-lg mb-4">
                   <span className="font-bold text-slate-700">138 Les Berges de Seine, 91830 Le Coudray-Montceaux</span>
                 </p>
                 <p className="text-slate-600/70 max-w-2xl mx-auto">
-                  Venez découvrir notre showroom et notre stock de chambres froides, panneaux isolants, portes et équipements en direct. 
-                  Nos experts vous accueillent sur rendez-vous pour vous conseiller et vous faire visiter nos installations.
+                  Découvrez notre stock et nos équipements. Visite sur rendez-vous.
                 </p>
               </div>
 
@@ -451,21 +484,26 @@ export default function Home() {
       <section className="py-24 bg-sky-50 relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Dernières Réalisations</h2>
-            <p className="text-slate-600/60 max-w-2xl mx-auto">Découvrez quelques-unes de nos réalisations qui témoignent de notre expertise</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Nos Réalisations</h2>
+            <p className="text-slate-600/60 max-w-2xl mx-auto">Découvrez nos projets réalisés</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
             {[
-              { title: 'Chambre Froide Négative', desc: 'Installation professionnelle pour le secteur alimentaire', img: '/chambre-froide-neg.jpg' },
-              { title: 'Aménagement Intérieur', desc: 'Solutions complètes clé en main pour restaurants', img: '/azz.jpg' },
-              { title: 'Projet Sur-Mesure', desc: 'Conception adaptée aux contraintes d\'espace', img: '/surmesure.jpg' },
+              { title: 'Chambre Froide Négative', desc: 'Secteur alimentaire', img: '/chambre-froide-neg.jpg', alt: 'Chambre froide négative professionnelle installée par Unicold', width: 800, height: 600 },
+              { title: 'Aménagement Intérieur', desc: 'Restaurants', img: '/azz.jpg', alt: 'Aménagement intérieur chambre froide pour restaurant', width: 800, height: 600 },
+              { title: 'Projet Sur-Mesure', desc: 'Conception adaptée', img: '/surmesure.jpg', alt: 'Chambre froide sur-mesure conçue par Unicold', width: 800, height: 600 },
             ].map((project, idx) => (
               <div key={idx} className="relative rounded-2xl overflow-hidden group h-80 glass-card">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${project.img})` }}
-                ></div>
+                <img
+                  src={project.img}
+                  alt={project.alt || project.title}
+                  width={project.width}
+                  height={project.height}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-white via-sky-50/50 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                   <h3 className="text-2xl font-bold text-slate-900 mb-1">{project.title}</h3>
@@ -478,9 +516,10 @@ export default function Home() {
           <div className="text-center">
             <Link
               to="/realisations"
-              className="inline-flex items-center bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-slate-900 font-bold px-10 py-4 rounded-lg shadow-lg transform transition hover:scale-[1.01]"
+              aria-label="Voir toutes nos réalisations de chambres froides"
+              className="inline-flex items-center bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-slate-900 font-bold px-10 py-4 rounded-lg shadow-lg transform transition hover:scale-[1.01] min-h-[44px]"
             >
-              Voir toutes nos réalisations <ArrowRight className="w-5 h-5 ml-2" />
+              <span>Voir toutes nos réalisations</span> <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -496,8 +535,8 @@ export default function Home() {
         </div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Suivez-nous sur les Réseaux Sociaux</h2>
-            <p className="text-slate-600/60 text-xl max-w-2xl mx-auto">Restez informés de nos dernières réalisations et actualités</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Suivez-nous</h2>
+            <p className="text-slate-600/60 text-xl max-w-2xl mx-auto">Restez informés de nos actualités</p>
           </div>
 
           <div className="flex justify-center gap-6 md:gap-8">
@@ -505,25 +544,28 @@ export default function Home() {
               href="https://www.facebook.com/unicold.unicold.7/"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card p-6 rounded-2xl transition-all hover:scale-110 hover:border-sky-500/50"
+              aria-label="Suivre Unicold sur Facebook"
+              className="glass-card p-6 rounded-2xl transition-all hover:scale-110 hover:border-sky-500/50 min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
-              <Facebook className="w-10 h-10 text-sky-500" />
+              <Facebook className="w-10 h-10 text-sky-500" aria-hidden="true" />
             </a>
             <a
               href="https://www.instagram.com/uni.cold/"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card p-6 rounded-2xl transition-all hover:scale-110 hover:border-sky-500/50"
+              aria-label="Suivre Unicold sur Instagram"
+              className="glass-card p-6 rounded-2xl transition-all hover:scale-110 hover:border-sky-500/50 min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
-              <Instagram className="w-10 h-10 text-sky-500" />
+              <Instagram className="w-10 h-10 text-sky-500" aria-hidden="true" />
             </a>
             <a
               href="https://linkedin.com/company/unicold"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card p-6 rounded-2xl transition-all hover:scale-110 hover:border-sky-500/50"
+              aria-label="Suivre Unicold sur LinkedIn"
+              className="glass-card p-6 rounded-2xl transition-all hover:scale-110 hover:border-sky-500/50 min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
-              <Linkedin className="w-10 h-10 text-sky-500" />
+              <Linkedin className="w-10 h-10 text-sky-500" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -536,36 +578,17 @@ export default function Home() {
           <div className="absolute bottom-10 left-10 w-80 h-80 bg-ice-400 rounded-full blur-3xl"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">Prêt à Démarrer Votre Projet ?</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">Prêt à Démarrer ?</h2>
           <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
-            Contactez-nous pour un devis gratuit et personnalisé. Notre équipe d'experts vous accompagne de A à Z.
+            Devis gratuit. Notre équipe vous accompagne.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center bg-sky-500 hover:bg-sky-300 text-slate-900 px-12 py-5 rounded-xl font-bold text-xl transition-all shadow-[0_0_30px_rgba(14,165,233,0.4)] hover:scale-105"
+            aria-label="Demander un devis gratuit pour votre projet de chambre froide"
+            className="inline-flex items-center bg-sky-500 hover:bg-sky-300 text-slate-900 px-12 py-5 rounded-xl font-bold text-xl transition-all shadow-[0_0_30px_rgba(14,165,233,0.4)] hover:scale-105 min-h-[44px]"
           >
-            Demander un Devis Gratuit <ArrowRight className="w-6 h-6 ml-3" />
+            <span>Demander un Devis Gratuit</span> <ArrowRight className="w-6 h-6 ml-3" aria-hidden="true" />
           </Link>
-        </div>
-      </section>
-
-      {/* Clients Logos */}
-      <section className="bg-gradient-to-b from-white via-sky-50 to-white py-24 border-t border-sky-200 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '30px 30px'
-          }}></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3 md:mb-4 px-4">Ils nous font confiance</h2>
-            <p className="text-slate-600/80 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
-              Des entreprises de renom qui nous font confiance pour leurs projets de chambres froides
-            </p>
-          </div>
-
-          <LogosMarquee />
         </div>
       </section>
     </div>

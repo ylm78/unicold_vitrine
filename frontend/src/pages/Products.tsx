@@ -1,6 +1,8 @@
 import { Package, Snowflake, Lightbulb, DoorOpen, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import SEO from '../components/SEO';
+import { getServiceSchema } from '../utils/schema';
 
 export default function Products() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -54,6 +56,13 @@ export default function Products() {
 
   return (
     <div>
+      <SEO
+        title="Produits Chambres Froides | Panneaux, Compresseurs, Portes | Unicold"
+        description="Produits professionnels pour chambres froides : panneaux sandwich isolants, compresseurs, portes, luminaires. Matériaux de qualité pour installation et rénovation. Devis gratuit."
+        keywords="panneaux sandwich chambre froide, compresseur chambre froide, porte chambre froide, luminaire chambre froide, matériaux chambre froide"
+        canonical="https://unicold.fr/produits"
+        schema={getServiceSchema("Produits chambres froides", "Vente de produits professionnels pour chambres froides : panneaux isolants, compresseurs, portes et luminaires.")}
+      />
       <section className="relative pt-20 md:pt-24 pb-16 md:pb-20 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">
@@ -64,10 +73,7 @@ export default function Products() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-ice-400/5 rounded-full blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900">Nos Produits</h1>
-          <p className="text-base md:text-lg text-slate-600/80 max-w-2xl mx-auto">
-            Matériaux et équipements de qualité professionnelle pour vos chambres froides
-          </p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900">Produits</h1>
         </div>
       </section>
 
@@ -140,7 +146,6 @@ export default function Products() {
                     <p className="text-xs text-slate-700/60 mb-2 font-semibold">Caractéristiques :</p>
                     <p className="text-xs text-slate-600/70">{product.specs}</p>
                   </div>
-                  <p className="text-sm text-slate-700 font-bold mb-4">{product.price}</p>
                   
                   <div className="flex flex-col gap-2">
                     <Link

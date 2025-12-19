@@ -1,6 +1,8 @@
 import { Phone, Mail, MapPin, Send, CheckCircle, XCircle, FileText, Calculator } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 import emailjs from 'emailjs-com';
+import SEO from '../components/SEO';
+import { getServiceSchema } from '../utils/schema';
 
 export default function Devis() {
   const [formData, setFormData] = useState({
@@ -125,6 +127,13 @@ Message: ${formData.message || 'Aucun message'}`;
 
   return (
     <div>
+      <SEO
+        title="Devis Gratuit Chambre Froide | Calcul en Ligne | Unicold"
+        description="Demandez votre devis gratuit de chambre froide en ligne. Calcul rapide selon vos besoins : dimensions, type (positive/négative), secteur d'activité. Réponse sous 2h. Île-de-France et Centre-Val de Loire."
+        keywords="devis chambre froide gratuit, prix chambre froide, calcul chambre froide, devis installation chambre froide, tarif chambre froide"
+        canonical="https://unicold.fr/devis"
+        schema={getServiceSchema("Devis chambre froide", "Devis gratuit pour installation de chambre froide positive ou négative. Calcul rapide selon vos besoins.")}
+      />
       <section className="relative py-32 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">

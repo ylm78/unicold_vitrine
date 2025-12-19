@@ -1,9 +1,18 @@
 import { Phone, Clock, MapPin, Wrench, AlertTriangle, CheckCircle, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { getServiceSchema } from '../utils/schema';
 
 export default function Depannage() {
   return (
     <div>
+      <SEO
+        title="Dépannage Chambre Froide 24/7 | Intervention Urgence sous 4h | Unicold"
+        description="Dépannage chambre froide d'urgence 24h/24 et 7j/7. Intervention express sous 4h en Île-de-France et Centre-Val de Loire. Techniciens frigoristes qualifiés QualiFroid. Appelez le +33 1 72 54 13 60 (gratuit)."
+        keywords="dépannage chambre froide, réparation chambre froide, urgence chambre froide, panne chambre froide, intervention chambre froide, dépannage froid professionnel"
+        canonical="https://unicold.fr/depannage"
+        schema={getServiceSchema("Dépannage chambre froide 24/7", "Service de dépannage d'urgence pour chambres froides. Intervention sous 4h, 24h/24 et 7j/7.")}
+      />
       {/* Hero Section Urgence */}
       <section className="relative py-32 bg-gradient-to-br from-red-950 via-white to-red-950 overflow-hidden border-b border-red-500/20">
         {/* Lignes géométriques subtiles */}
@@ -20,9 +29,9 @@ export default function Depannage() {
             ⚡ URGENCE 24/7
           </div>
           <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 text-slate-900">
-            Dépannage Express
+            Dépannage Chambre Froide Express
             <br />
-            <span className="text-red-400">Chambre Froide</span>
+            <span className="text-red-400">Intervention Urgence 24/7</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600/80 max-w-3xl mx-auto mb-10">
             Intervention d'urgence sous 4h partout en Île-de-France et Centre-Val de Loire

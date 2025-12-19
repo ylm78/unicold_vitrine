@@ -13,7 +13,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Séparer les vendors
+          // Séparer les vendors pour un meilleur code splitting
           if (id.includes('node_modules')) {
             if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
               return 'react-vendor';
@@ -34,17 +34,24 @@ export default defineConfig({
         assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
       },
     },
-    // Compression
+    // Compression agressive
     minify: 'terser',
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug'],
-        passes: 2, // Plus de passes pour une meilleure compression
+        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+        passes: 3, // Plus de passes pour une meilleure compression
+        dead_code: true,
+        unused: true,
+        collapse_vars: true,
+        reduce_vars: true,
       },
       format: {
         comments: false,
+      },
+      mangle: {
+        safari10: true,
       },
     },
     // Chunk size warning limit
@@ -52,9 +59,19 @@ export default defineConfig({
     // Optimisation des assets
     assetsInlineLimit: 4096, // Inline les petits assets (< 4KB)
     cssCodeSplit: true,
-    sourcemap: false, // Désactiver les sourcemaps en production pour réduire la taille
+    cssMinify: true, // Minifier le CSS
+    sourcemap: false, // Désactiver les sourcemaps en production
+    // Tree shaking agressif
+    treeshake: {
+      moduleSideEffects: false,
+    },
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom'],
+    exclude: ['@supabase/supabase-js'], // Exclure si non utilisé
+  },
+  // Optimisation CSS
+  css: {
+    devSourcemap: false,
   },
 });

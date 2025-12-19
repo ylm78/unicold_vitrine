@@ -1,9 +1,18 @@
 import { UtensilsCrossed, CheckCircle, Snowflake, Shield, Zap, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getServiceSchema } from '../../utils/schema';
 
 export default function Restauration() {
   return (
     <div>
+      <SEO
+        title="Chambres Froides pour Restaurants | Solutions Métiers de Bouche | Unicold"
+        description="Chambres froides adaptées aux restaurants, traiteurs, boulangeries et boucheries. Solutions positives et négatives conformes HACCP. Installation professionnelle en Île-de-France et Centre-Val de Loire."
+        keywords="chambre froide restaurant, chambre froide boucherie, chambre froide traiteur, chambre froide boulangerie, solution restauration, métiers de bouche"
+        canonical="https://unicold.fr/solutions/restauration"
+        schema={getServiceSchema("Chambres froides pour restauration", "Solutions de chambres froides adaptées aux restaurants et métiers de bouche. Conformité HACCP garantie.")}
+      />
       <section className="relative py-32 bg-white overflow-hidden border-b border-sky-500/10">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
@@ -13,9 +22,9 @@ export default function Restauration() {
             <UtensilsCrossed className="w-10 h-10 text-orange-400" />
           </div>
           <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 text-slate-900">
-            Solutions pour la
+            Chambres Froides pour Restaurants
             <br />
-            <span className="text-orange-400">Restauration & Métiers de Bouche</span>
+            <span className="text-orange-400">Solutions Métiers de Bouche</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600/80 max-w-3xl mx-auto">
             Chambres froides adaptées aux contraintes des restaurants, traiteurs, boulangeries et boucheries

@@ -1,9 +1,18 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { getLocalBusinessSchema } from '../utils/schema';
 
 export default function Contact() {
   return (
     <div>
+      <SEO
+        title="Contact Unicold | Devis Gratuit Chambre Froide | Île-de-France & Centre"
+        description="Contactez Unicold pour un devis gratuit de chambre froide. Téléphone : +33 1 72 54 13 60 (gratuit). Showroom à Coudray-Montceaux (91), Siège à Poissy (78). Réponse sous 2h."
+        keywords="contact unicold, devis chambre froide gratuit, téléphone unicold, showroom chambre froide, Coudray-Montceaux, Poissy, Dreux"
+        canonical="https://unicold.fr/contact"
+        schema={getLocalBusinessSchema()}
+      />
       <section className="relative py-32 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">
@@ -20,10 +29,10 @@ export default function Contact() {
             <Phone className="w-12 h-12 text-sky-500" />
           </div>
           <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 text-slate-900">
-            Contactez-nous
+            Contactez Unicold pour un Devis Gratuit
           </h1>
           <p className="text-xl md:text-2xl text-slate-600/80 max-w-3xl mx-auto">
-            Une question ? Besoin d'informations ? Notre équipe est à votre écoute.
+            Demande de devis chambre froide, visite showroom ou intervention d'urgence. Notre équipe d'experts vous répond sous 2h. Île-de-France et Centre-Val de Loire.
           </p>
         </div>
       </section>

@@ -1,9 +1,18 @@
 import { Snowflake, Wrench, Package, Settings, Phone, CheckCircle, Truck, FileText, Shield, Zap, Building2, UtensilsCrossed, Factory, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { getServiceSchema } from '../utils/schema';
 
 export default function Services() {
   return (
     <div>
+      <SEO
+        title="Services Chambres Froides | Installation, Maintenance & Dépannage 24/7 | Unicold"
+        description="Services complets pour chambres froides : installation professionnelle, maintenance préventive, dépannage d'urgence 24/7. Solutions sur-mesure pour restaurants, boucheries, commerces et industrie. Île-de-France et Centre-Val de Loire."
+        keywords="installation chambre froide, maintenance chambre froide, dépannage chambre froide, service chambre froide, contrat maintenance chambre froide, QualiFroid"
+        canonical="https://unicold.fr/services"
+        schema={getServiceSchema("Services chambres froides professionnelles", "Installation, maintenance et dépannage de chambres froides positives et négatives. Solutions complètes pour tous les secteurs professionnels.")}
+      />
       <section className="relative pt-20 md:pt-24 pb-16 md:pb-20 bg-white overflow-hidden border-b border-sky-500/10">
         {/* Lignes géométriques subtiles */}
         <div className="absolute inset-0 opacity-5">
@@ -14,10 +23,7 @@ export default function Services() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-300/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-ice-400/5 rounded-full blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900">Nos Services</h1>
-          <p className="text-base md:text-lg text-slate-600/80 max-w-2xl mx-auto">
-            Des solutions complètes et professionnelles pour tous vos besoins en réfrigération
-          </p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900">Services</h1>
         </div>
       </section>
 
@@ -30,7 +36,7 @@ export default function Services() {
                   <Snowflake className="w-10 h-10" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6">
-                  Vente de Chambres Froides
+                  Vente de Chambres Froides Positives et Négatives
                 </h2>
                 <p className="text-slate-600/80 mb-8 text-lg leading-relaxed">
                   Nous proposons une large gamme de chambres froides adaptées à tous les secteurs
@@ -91,7 +97,7 @@ export default function Services() {
                 <div className="rounded-2xl overflow-hidden shadow-2xl hover-lift">
                   <img
                     src="/chambre-froide-neg.jpg"
-                    alt="Chambre froide professionnelle"
+                    alt="Installation chambre froide négative professionnelle par Unicold"
                     className="w-full h-96 object-cover"
                     loading="lazy"
                     decoding="async"
@@ -106,7 +112,7 @@ export default function Services() {
                 <div className="rounded-2xl overflow-hidden shadow-2xl hover-lift">
                   <img
                     src="/azz.jpg"
-                    alt="Installation professionnelle chambre froide"
+                    alt="Installation professionnelle chambre froide positive pour restaurant"
                     className="w-full h-96 object-cover"
                     loading="lazy"
                   />
@@ -117,7 +123,7 @@ export default function Services() {
                   <Truck className="w-10 h-10" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6">
-                  Installation Professionnelle
+                  Installation Chambre Froide Professionnelle
                 </h2>
                 <p className="text-slate-600/80 mb-6 text-lg leading-relaxed">
                   Installation complète par nos techniciens qualifiés QualiFroid avec mise en service et formation du personnel.
