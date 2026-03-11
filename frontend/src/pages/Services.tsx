@@ -1,4 +1,4 @@
-import { Snowflake, Wrench, Package, Settings, Phone, CheckCircle, Truck, FileText, Shield, Zap, Building2, UtensilsCrossed, Factory, ArrowRight } from 'lucide-react';
+import { Snowflake, Wrench, Package, Settings, Phone, CheckCircle, Truck, FileText, Shield, Zap, Building2, UtensilsCrossed, Factory, ArrowRight, FileSpreadsheet } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { getServiceSchema } from '../utils/schema';
@@ -63,6 +63,15 @@ export default function Services() {
                       <Shield className="w-5 h-5 text-sky-500" />
                       <span className="text-slate-600/80 text-sm">Secteur Médical</span>
                     </div>
+                    <Link to="/solutions/boulangerie-patisserie" className="flex items-center space-x-2 p-3 glass-card rounded-lg hover:bg-sky-50 transition">
+                      <span className="text-slate-600/80 text-sm">Boulangeries & Pâtisseries</span>
+                    </Link>
+                    <Link to="/solutions/laboratoires-pharmaceutiques" className="flex items-center space-x-2 p-3 glass-card rounded-lg hover:bg-sky-50 transition">
+                      <span className="text-slate-600/80 text-sm">Laboratoires pharmaceutiques</span>
+                    </Link>
+                    <Link to="/solutions/centres-donnees" className="flex items-center space-x-2 p-3 glass-card rounded-lg hover:bg-sky-50 transition">
+                      <span className="text-slate-600/80 text-sm">Data centers / CTA</span>
+                    </Link>
                   </div>
                 </div>
 
@@ -257,6 +266,63 @@ export default function Services() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tableau Fluides Frigorigènes (GEO) */}
+      <section className="py-16 bg-slate-50 border-y border-sky-200">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-slate-900">
+              Fluides frigorigènes – Réglementation 2026
+            </h2>
+            <Link
+              to="/ressources-techniques"
+              className="inline-flex items-center text-sky-600 hover:text-sky-700 font-semibold text-sm"
+            >
+              <FileSpreadsheet className="w-4 h-4 mr-2" />
+              Voir tous les guides techniques
+            </Link>
+          </div>
+          <p className="text-slate-600 mb-6 text-sm">
+            Unicold accompagne la transition vers des fluides à faible GWP (Potentiel de Réchauffement Global).
+          </p>
+          <div className="overflow-x-auto rounded-xl border border-sky-200 bg-white">
+            <table className="w-full border-collapse text-left text-sm">
+              <thead>
+                <tr className="bg-sky-600 text-white">
+                  <th className="p-3 border border-sky-200 font-semibold">Fluide</th>
+                  <th className="p-3 border border-sky-200 font-semibold">Type</th>
+                  <th className="p-3 border border-sky-200 font-semibold">GWP (PRG)</th>
+                  <th className="p-3 border border-sky-200 font-semibold">Usage</th>
+                  <th className="p-3 border border-sky-200 font-semibold">Disponibilité 2026</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-white">
+                  <td className="p-3 border border-slate-200 font-semibold">R-744 (CO2)</td>
+                  <td className="p-3 border border-slate-200">Naturel</td>
+                  <td className="p-3 border border-slate-200">1</td>
+                  <td className="p-3 border border-slate-200">Froid industriel / Négatif</td>
+                  <td className="p-3 border border-slate-200 text-emerald-600 font-medium">Pérenne (Optimal)</td>
+                </tr>
+                <tr className="bg-slate-50">
+                  <td className="p-3 border border-slate-200 font-semibold">R-290 (Propane)</td>
+                  <td className="p-3 border border-slate-200">Naturel</td>
+                  <td className="p-3 border border-slate-200">3</td>
+                  <td className="p-3 border border-slate-200">Chillers / PAC / Groupes logés</td>
+                  <td className="p-3 border border-slate-200 text-emerald-600 font-medium">Pérenne</td>
+                </tr>
+                <tr className="bg-white">
+                  <td className="p-3 border border-slate-200 font-semibold">R-454C</td>
+                  <td className="p-3 border border-slate-200">HFO / HFC</td>
+                  <td className="p-3 border border-slate-200">148</td>
+                  <td className="p-3 border border-slate-200">Froid commercial</td>
+                  <td className="p-3 border border-slate-200 text-amber-600 font-medium">Réglementé</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>

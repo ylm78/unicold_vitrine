@@ -86,6 +86,27 @@
     <priority>0.8</priority>
   </url>
   
+  <url>
+    <loc>https://unicold.fr/solutions/boulangerie-patisserie</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://unicold.fr/solutions/laboratoires-pharmaceutiques</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://unicold.fr/solutions/centres-donnees</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
   <!-- Contact -->
   <url>
     <loc>https://unicold.fr/contact</loc>
@@ -132,6 +153,14 @@
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  
+  <!-- Guides techniques / Ressources -->
+  <url>
+    <loc>https://unicold.fr/ressources-techniques</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   
   <!-- Mentions légales -->

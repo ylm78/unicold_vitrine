@@ -6,6 +6,27 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
+    // Orienté solution (GEO)
+    {
+      q: 'Quel est le prix d\'un contrat de maintenance pour froid industriel ?',
+      a: 'Un contrat de maintenance préventive pour froid industriel chez Unicold démarre à partir de 800€/an (2 visites annuelles + dépannage). Le contrat Premium (4 visites + dépannage 24/7) est à partir de 1 500€/an. Nous établissons un devis personnalisé selon le nombre et le type d\'équipements.'
+    },
+    {
+      q: 'Comment réduire la consommation électrique d\'une centrale de traitement d\'air ?',
+      a: 'Pour réduire la consommation d\'une CTA : nettoyage régulier des filtres et des batteries (semestriel), vérification des courroies et des moteurs, optimisation des consignes de température et des plages de fonctionnement. Unicold propose des contrats de maintenance incluant ces points et des audits énergétiques pour identifier les gains possibles.'
+    },
+    {
+      q: 'Quelle température pour une chambre froide positive ?',
+      a: 'Une chambre froide positive est réglée entre 0°C et +4°C pour les produits frais (légumes, fruits, laitiers). Jusqu\'à +10°C pour certains produits spécifiques. Le respect de la chaîne du froid et des normes HACCP impose un enregistrement des températures ; nos équipements le permettent.'
+    },
+    {
+      q: 'Qui peut intervenir sur une installation contenant des F-Gaz ?',
+      a: 'Seuls les techniciens certifiés (habilitation fluides frigorigènes) peuvent intervenir sur les équipements contenant des F-Gaz. Unicold dispose de personnels qualifiés et respecte la réglementation F-Gaz pour la maintenance, la recharge et la récupération des fluides.'
+    },
+    {
+      q: 'Combien coûte une installation de chambre froide pour une boulangerie ?',
+      a: 'Pour une boulangerie, une chambre froide positive (conservation pâte, ingrédients) de 5 à 10 m³ coûte environ 4 000€ à 8 000€ TTC fourniture et pose. Une solution positive + négative (pour congélation) sur-mesure est chiffrée après visite. Devis gratuit sous 48h.'
+    },
     // Général
     {
       q: 'Quelle est la différence entre une chambre froide positive et négative ?',

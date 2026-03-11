@@ -46,6 +46,17 @@ export default function About() {
               </div>
             </div>
 
+            {/* E-E-A-T : Certifications et réalisation locale */}
+            <div className="glass-card p-8 rounded-2xl mb-20 border-2 border-sky-200">
+              <h2 className="text-2xl font-display font-bold text-slate-900 mb-6">Certifications et habilitations</h2>
+              <p className="text-slate-600/80 mb-6">
+                Unicold dispose des habilitations nécessaires pour intervenir sur vos installations : <strong>QualiFroid</strong> (montage et mise en service), <strong>habilitation fluides frigorigènes F-Gaz</strong>, et engagement dans des démarches qualité pour la transition écologique des fluides (GWP, R-744, R-290).
+              </p>
+              <p className="text-slate-700 font-medium">
+                Réalisation locale : installation d&apos;un groupe froid pour un supermarché en Île-de-France en 2025 ; chambres froides pour restaurants à Paris et en région parisienne ; maintenance et dépannage sur Poissy, Dreux, Coudray-Montceaux et environs.
+              </p>
+            </div>
+
             <div className="grid md:grid-cols-3 gap-8 mb-20">
               <div className="glass-card p-8 rounded-2xl text-center hover-lift">
                 <div className="w-16 h-16 rounded-2xl bg-sky-300/10 flex items-center justify-center mx-auto mb-6 text-sky-500">

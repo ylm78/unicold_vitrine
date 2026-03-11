@@ -19,11 +19,15 @@ const AidesFinancement = lazy(() => import('./pages/AidesFinancement'));
 const Restauration = lazy(() => import('./pages/metiers/Restauration'));
 const Industrie = lazy(() => import('./pages/metiers/Industrie'));
 const Medical = lazy(() => import('./pages/metiers/Medical'));
+const BoulangeriePatisserie = lazy(() => import('./pages/metiers/BoulangeriePatisserie'));
+const LaboratoiresPharmaceutiques = lazy(() => import('./pages/metiers/LaboratoiresPharmaceutiques'));
+const DataCenters = lazy(() => import('./pages/metiers/DataCenters'));
 const PanneauxSandwich = lazy(() => import('./pages/products/PanneauxSandwich'));
 const Compresseurs = lazy(() => import('./pages/products/Compresseurs'));
 const Portes = lazy(() => import('./pages/products/Portes'));
 const Luminaires = lazy(() => import('./pages/products/Luminaires'));
 const SuppressionDonnees = lazy(() => import('./pages/SuppressionDonnees'));
+const RessourcesTechniques = lazy(() => import('./pages/RessourcesTechniques'));
 
 // Composant de chargement
 const LoadingFallback = () => (
@@ -60,8 +64,12 @@ function App() {
               <Route path="/solutions/restauration" element={<Restauration />} />
               <Route path="/solutions/industrie" element={<Industrie />} />
               <Route path="/solutions/medical" element={<Medical />} />
+              <Route path="/solutions/boulangerie-patisserie" element={<BoulangeriePatisserie />} />
+              <Route path="/solutions/laboratoires-pharmaceutiques" element={<LaboratoiresPharmaceutiques />} />
+              <Route path="/solutions/centres-donnees" element={<DataCenters />} />
               <Route path="/mentions-legales" element={<MentionsLegales />} />
               <Route path="/suppression-donnees" element={<SuppressionDonnees />} />
+              <Route path="/ressources-techniques" element={<RessourcesTechniques />} />
     </Routes>
           </Suspense>
   </main>

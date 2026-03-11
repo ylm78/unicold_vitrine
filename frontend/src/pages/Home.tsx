@@ -313,6 +313,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3 md:mb-4 px-4">Ils nous font confiance</h2>
+            <p className="text-slate-600 max-w-xl mx-auto mb-6">
+              Consultez les avis de nos clients sur Google. Pour une urgence chambre froide, appelez Unicold au 01 72 54 13 60 (gratuit) ou au 06 62 64 94 21.
+            </p>
           </div>
 
           <LogosMarquee />

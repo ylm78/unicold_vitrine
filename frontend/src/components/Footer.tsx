@@ -28,10 +28,19 @@ export default function Footer() {
           </div>
             </div>
 
+        {/* Données de contact en texte clair pour GEO / IA */}
+        <div className="mb-8 p-4 rounded-xl bg-white/60 border border-sky-200 text-slate-700 text-sm">
+          <p><strong>Unicold</strong> – Chambres froides et froid industriel. Téléphone : <a href="tel:+33172541360" className="text-sky-600 font-semibold">01 72 54 13 60</a> (gratuit) ou <a href="tel:+33662649421" className="text-sky-600 font-semibold">06 62 64 94 21</a>. Adresse : 16 Rue Pascal, 78300 Poissy. Showroom : 138 Les Berges de Seine, 91830 Le Coudray-Montceaux. Horaires : Lundi–Vendredi 8h–18h, Samedi 9h–12h. Zone d&apos;intervention : Île-de-France et Centre-Val de Loire.</p>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12 mb-6 md:mb-8">
           <div>
             <p className="text-slate-600 text-sm leading-relaxed">
               Votre expert en chambres froides professionnelles depuis plus de 15 ans.
+            </p>
+            <h3 className="font-bold text-base mt-6 mb-2 text-slate-900">Villes d&apos;intervention</h3>
+            <p className="text-slate-600 text-xs leading-relaxed">
+              Paris, Lyon, Marseille, Poissy, Versailles, Dreux, Coudray-Montceaux, Évry, Melun, Chartres, Orléans, Tours, et toute l&apos;Île-de-France et le Centre-Val de Loire.
             </p>
           </div>
 
@@ -50,6 +59,7 @@ export default function Footer() {
             <ul className="space-y-2 md:space-y-3 text-slate-600 text-xs md:text-sm">
               <li><Link to="/a-propos" className="hover:text-sky-500 transition">À Propos</Link></li>
               <li><Link to="/faq" className="hover:text-sky-500 transition">FAQ</Link></li>
+              <li><Link to="/ressources-techniques" className="hover:text-sky-500 transition">Guides techniques</Link></li>
               <li><Link to="/contact" className="hover:text-sky-500 transition">Contact</Link></li>
               <li><Link to="/mentions-legales" className="hover:text-sky-500 transition">Mentions Légales</Link></li>
               <li><Link to="/suppression-donnees" className="hover:text-sky-500 transition">Suppression de données</Link></li>
@@ -87,7 +97,13 @@ export default function Footer() {
                 <div className="bg-sky-100 p-2 rounded-lg">
                   <MapPin className="w-4 h-4 text-sky-500" />
                 </div>
-                <span>France IDF et Eure-et-Loir (28)</span>
+                <div>
+                  <span className="block font-medium text-slate-900">Siège : 16 Rue Pascal, 78300 Poissy</span>
+                  <span className="block text-xs">Showroom : Le Coudray-Montceaux (91). Entrepôt : Dreux (28).</span>
+                </div>
+              </li>
+              <li className="text-xs text-slate-600">
+                <strong>Horaires :</strong> Lun.–Ven. 8h–18h, Sam. 9h–12h. Dépannage 24/7.
               </li>
             </ul>
           </div>
